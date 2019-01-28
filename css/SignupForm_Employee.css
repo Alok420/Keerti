@@ -1,0 +1,40 @@
+
+
+.container{
+    margin-top: 30px;
+}
+  
+
+.flex-box button{
+  height: 40px;
+   width: 150px;
+    background: #428bca;
+    color: white;
+    margin: 0 40px 0 16px;
+   box-sizing: border-round;
+   border: transparent;
+  
+   font-family: 'Raleway', sans-serif;
+   font-size: 14px;
+  
+   text-transform: uppercase;
+   Letter-spacing: 0.2em;
+   color: white;
+} 
+
+.form-row button{
+    height: 40px;
+   width: 150px;
+    background: #428bca;
+    color: white;
+    margin: 0 40px 0 16px;
+   box-sizing: border-box;
+   border: transparent;
+   
+   font-family: 'Raleway', sans-serif;
+   font-size: 14px;
+   font-weight: 500;
+   text-transform: uppercase;
+   Letter-spacing: 0.2em;
+   color: white;
+}

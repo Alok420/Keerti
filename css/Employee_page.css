@@ -1,0 +1,80 @@
+.profilecard{
+      width: 500px;
+      background: <?php  echo $Topnavbar; ?> 
+      
+    }
+.profilecard {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(2,2,2,2.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.profilecard:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+    .employe img{
+
+      min-width: 150px;
+      min-height: 150px;
+
+    }
+
+    #Empname{
+      
+      font-size: 18px;
+
+
+    }
+
+    #Empdesc{
+        
+   font-size: 16px;
+    }
+
+    #Emplocation{
+
+      font-size: 15px;
+      color: gray;
+    }
+
+    
+    .btn3 button{
+      
+  display: inline-block;
+  height: 40px;
+  width: 150px;
+  margin-left:-20px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  background-color: #428bca;
+  cursor: pointer;
+  outline: none;
+    }
+.btn4 button,.btn4 .knowmorw{
+  height: 40px;
+  width: 150px;
+  margin-top: 10px;
+
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  background-color: #428bca;
+  cursor: pointer;
+  outline: none;
+
+}
+   

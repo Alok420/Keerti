@@ -1,0 +1,107 @@
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-logo{
+    position: relative;
+    margin-left: -41.5%;
+}
+.login-logo img{
+    position: absolute;
+    width: 20%;
+    margin-top: 19%;
+    background: #282726;
+    border-radius: 4.5rem;
+    padding: 5%;
+}
+.login-form-1{
+    padding: 4%;
+    padding-top: 2.6%;
+    padding-bottom: 7%;
+    background:#282726;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color:#fff;
+}
+.login-form-2{
+    padding: 9%;
+    background: #f05837;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color: #fff;
+}
+.btnSubmit{
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+.btnForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.btnForgetPwd:hover{
+    text-decoration:none;
+    color:#fff;
+}
+.btnnotregistered{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left:50px;
+}
+.btnnotregistered:hover{
+    text-decoration:none;
+    color:#fff;
+}
+.registrationlink{
+    background-color: white;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 1px 1px 30px white,-1px -1px 30px white;
+    margin-top:48px;
+    text-transform: capitalize;
+    border-radius: 20px;
+    padding: 10px;
+    width: 80%;
+    /*padding-left: 0px;*/
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.login-form-1 h1{
+    color: white;
+    text-align: center;
+}
+@media only screen and (max-width: 1000px) {
+    .login-form-1{
+        padding: 0px auto;
+       
+    }
+    .registrationlink{
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: bold;
+    box-shadow: 1px 1px 30px white,-1px -1px 30px white;
+    margin-top:48px;
+    margin-left: 10%;
+    border-radius: 20px;
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    text-align: center;
+}
+}

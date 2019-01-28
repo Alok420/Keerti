@@ -1,0 +1,388 @@
+body{
+    /*background-color: red;*/
+}
+.resume{
+    border: thin solid black;
+    background-color: white;
+    height: 100%;
+    margin: 50px;
+    /*text-align: left!important;*/
+    padding: 10px;
+
+}
+.resume h3{
+    text-align: left!important;
+}
+#add{
+    color: black;
+    /*background-color: red;*/
+}
+.profilename{
+    font-size: 30px;
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+.profilerow{
+    /*height: 30%;*/
+    border: thin solid black;
+    margin-top: -1%!important;
+    color: white;
+}
+
+.progressbar{
+    margin:5px;
+    /*border: thin solid black;*/
+}
+.profile{
+    /*background-color: red;*/
+}
+.circle{
+    background-color:white;
+    height:150px;
+    width:150px;
+    margin-left: 30%;
+    background-image: linear-gradient(to top, goldenrod 70%, white);
+    /*position:relative;*/
+    /*left:25%;*/
+    margin-top: 15px;
+    border-radius:100%;
+}
+.circle1{
+    background-color:white;
+    height:150px;
+    width:150px;
+    margin-left: 30%;
+    /*position:relative;*/
+    /*left:25%;*/
+    margin-top: 15px;
+    border-radius:100%;
+}
+.flex-box{
+    position: relative;
+    height: 230px;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.flex-container > div {
+    /*background-color: #f1f1f1;*/
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+}
+.flex-container img,.flex-container video,.flex-container embed{
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 100%;
+    margin-top: 15px;
+}
+.flex-container h2{
+    font-size: 25px;
+    font-family:sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    /*background-color: red;*/
+}
+.flex-container .circlename{
+    text-align: center;
+    /*position: relative;*/
+    /*top: 15%;*/
+}
+
+
+
+.profilepage{
+    padding: 10px;
+}
+.profilebtn{
+    height: 45px;
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-family: monospace;
+    position: relative;
+    left: 35%!important;
+    padding: 5px;
+}
+.profilebtn:hover{
+    background-color: rgba(0,128,0,.9);
+    color: white;
+    border: none;
+    transition: .2s ease-in-out;
+}
+.sendbtn{
+    height: 45px;
+    width: 150px;
+    text-align: center;
+    border: 2px solid black;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-family: monospace;
+    position: relative;
+    left: 35%!important;
+    padding: 5px;
+}
+.sendbtn:hover{
+    background-color: rgba(0,128,0,.9);
+    color: white;
+    border: none;
+    transition: .2s ease-in-out;
+}
+.hiremebtn{
+    height: 45px;
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-family: monospace;
+    position: relative;
+    left: 35%!important;
+    padding: 5px;
+}
+.hiremebtn:hover{
+    background-color: rgba(0,128,0,.9);
+    color: white;
+    border: none;
+    transition: .2s ease-in-out;
+}
+.profiledescription{
+    position: relative;
+    top: 25px;
+    font-size: 18px;
+    padding: 10px;
+    font-variant: small-caps;
+    word-wrap: break-word;
+    text-align: left;
+}
+.contactus{
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+    text-align: left;
+
+}
+.educationcontent{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.professionaldetails{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.jobpreference{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.remunerationdetail{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.projectdetail{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.languageknown{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.reference{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+.passportinfo{
+    text-align: left;
+    font-size: 18px;
+    font-family: monospace;
+    word-break:  break-all;
+    padding: 10px;
+}
+
+/*-----------------------------------table-----------------------------*/
+.table{
+    padding: 30px;
+}
+#table{
+    padding: 30px;
+    text-decoration: none;
+}
+thead{
+    font-size: 17px;
+    font-family:monospace;
+    text-align: left;
+    color: #003246;
+    font-weight: 500;
+}
+tr{
+    font-size: 16px;
+    text-align: left;
+    font-family: serif;
+}
+.circlename{
+
+    /*margin-top: 150px!important;*/
+    color: white; 
+    position: static;
+}
+
+@media only screen and (max-width: 600px){
+    .profilerow{
+        background-color: black;
+        /*height: 30%;*/
+        margin-top: -3%!important;
+        color: white;
+    }  
+    .profilebtn{
+        height: 45px;
+        width: 100px;
+        text-align: center;
+        border: 2px solid black;
+        font-size: 18px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-family: monospace;
+        position: absolute;
+        left: 5%!important;
+        padding: 5px;
+    }
+    .sendbtn{
+        height: 45px;
+        width: 150px;
+        text-align: center;
+        border: 2px solid black;
+        font-size: 18px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-family: monospace;
+        position: absolute;
+        left: 30%!important;
+        padding: 5px;
+    }
+
+    .hiremebtn{
+        height: 45px;
+        width: 100px;
+        text-align: center;
+        border: 2px solid black;
+        font-size: 18px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-family: monospace;
+        position: absolute;
+        left: 65%!important;
+        padding: 5px;
+    }
+    .profiledescription{
+    position: relative;
+    top: 45px;
+    font-size: 18px;
+    padding: 10px;
+    font-variant: small-caps;
+    word-wrap: break-word;
+    text-align: left;
+}
+.profilehr{
+    display: none;
+/*    width: 70%;
+    margin: 10px;*/
+}
+    /*    *{
+            border: thin solid red;
+        }*/
+    body{
+        word-wrap: break-word;
+    }
+    .resume{
+        border: thin solid black;
+        background-color: white;
+        height: 100%;
+        /*width: 100%;*/
+        margin: 0px;
+        text-align: center;
+        padding: 10px;
+
+    }
+    .circle{
+        height: 100px;
+        width: 100px;
+        margin-left: 20px;
+    }
+    .circle1{
+        height: 100px;
+        width: 100px;
+        margin-left: 20px;
+    }
+    img{
+        height: 100px!important;
+        width: 100px!important;
+    }
+
+    .flex-container h2{
+        font-size: 20px;
+        font-family:sans-serif;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+   
+    btn-profile {
+        
+        border: thin solid red;
+    }
+/*    .btn-profile> .profilebtn, .sendbtn, .hiremebtn{
+        margin-left: 0%!important;
+        border: thin solid blue;
+        margin-left: -100px;
+    }
+    .btn-profile> .sendbtn{
+        margin-left: -20%!important;
+        border: thin solid blue;
+        margin-left: -100px;
+    }
+    .btn-profile> .hiremebtn{
+        margin-left: -0%!important;
+        border: thin solid blue;
+        margin-left: -100px;
+    }*/
+
+}

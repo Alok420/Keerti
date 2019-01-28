@@ -1,0 +1,144 @@
+@import "compass/css3";
+
+* {box-sizing: border-box;}
+
+/*body {background-color: #eee;}*/
+
+.container {
+    padding: 1rem 1rem;
+    max-width: 1200px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+
+#ul1 {
+    list-style: none;
+    /*width: 100%;*/
+}
+#li1 {
+    padding: 1rem; 
+    background: #fff;
+    color: #202020;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    opacity: 0.9;
+}
+
+#li1:hover{
+    box-shadow: 1px 2px 3px 0px rgba(25,25,25,0.6);
+    opacity: 1;
+    transition:all 0.5s ease;  
+}
+
+
+h1 {
+    background-color: darken(steelblue, 10%);
+    color: #fff;
+    padding: 1.25rem;
+}
+h2 {margin: 0;
+}
+p {
+    color: #555; ;
+}
+img {
+    /*width: 100%;*/
+    margin-bottom:1.5rem; border-radius: 5px;
+}
+
+
+
+/* Flexbox Styling */
+
+/* Inspired by https://www.aaron-gustafson.com/notebook/playing-with-flexbox-and-quantity-queries/ */
+
+.item-list2 {
+    display: flex; 
+    /*flex-wrap: wrap;*/
+}
+.item {
+
+    /*margin: 0 0 1.25rem;*/
+}
+
+@media (min-width: 36em) {
+
+    .item { 
+        flex: 0 0 calc( 50% - 1.25rem / 2 );
+        margin-left: 1.25rem;
+    }
+
+    .item:nth-child(odd){ 
+        margin-left: 0;
+    }  
+
+}
+
+@media (min-width: 60em) {
+    .item {flex: 0 0 calc(100% / 3 - 0.875rem);
+    }
+
+    .item:nth-child(odd), item:nth-child(even) { 
+        margin-left: 1.25rem;
+    }
+
+    .item:nth-child(3n+1) { 
+        margin-left: 0;} 
+}
+
+.butt1{
+
+    display: inline-block;
+    height: 40px;
+    width: 150px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px!important;
+    font-weight: 500;
+    padding-top: 10px!important;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: white;
+    background-color: #428bca;
+    cursor: pointer;
+    outline: none;
+
+}
+/*
+.butt1{
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: white;
+    background-color: #428bca;
+    cursor: pointer;
+    outline: none;
+
+}*/
+
+.fas{
+    font-size: 20px;
+}
+
+.fas:hover{
+    margin-left: 3px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}

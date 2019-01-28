@@ -1,0 +1,298 @@
+nav{
+    background-color:#003246 ;
+    height: 80px;
+}
+.navbar-header a{
+    text-decoration: none;
+    color: #95afc0;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    /*font-weight: bold;*/
+}
+.navbar-nav a{
+    color: yellowgreen;
+    font-size: 18px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+
+}
+.navbar-nav .dropdown a{
+    color:yellowgreen;
+}
+.navbar-nav a:active{
+    background: transparent;
+    cursor: pointer;
+}
+.navbar-nav:hover{
+    background: transparent;
+    cursor: pointer;
+}
+
+ul span{
+    /*background-color: white;*/
+    color: white;
+
+}
+.envelopenotification{
+    background-color: red;
+    color: black;
+    height: 20px;
+    width: 22px;
+    border-radius: 5px;
+    margin-top: -33px;
+    margin-left: 8px;
+    /*border: thin solid blue;*/
+    position: absolute;
+}
+.bellnotification{
+    background-color: red;
+    color: black;
+    height: 20px;
+    width: 22px;
+    border-radius: 5px;
+    margin-top: -33px;
+    margin-left: 8px;
+    /*border: thin solid blue;*/
+    position: absolute;
+}
+.notification{
+    height: 350px;
+    width: 300px;
+    background-color: #004059;
+    border: thin solid black;
+    color: black;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: -10%;
+    display: none;
+}
+/*----------------------------------------------rootdashboard----------------------------*/
+.card{
+    height: 200px;
+    /*border: thin solid black;*/
+    box-shadow: 2px 2px #08507F, -2px -2px #08507F;
+    text-align: center;
+    /*background-color:#95afc0;*/
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.card a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+.card a:hover{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+form{
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.rootdashboard{
+    font-size: 20px;
+    padding: 10px;
+    float: left;
+}
+.totalbranch{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+.rooticon{
+    font-size: 150px;
+    float: right;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    opacity: 0.1;
+    
+}
+.rootdashboard a{
+    text-decoration: none;
+    color: white;
+    /*font-size: 16px;*/
+}
+.rootdashboard a:hover{
+    text-decoration: none;
+    /*background-color: #95afc0;*/
+    
+}
+.card-btn-root{
+    padding: 12px;
+    background-color: #002433;
+    text-align: center;
+}
+.card-btn-root:hover{
+    text-decoration: none;
+    background-color: #002433;
+}
+.btn-card-root{
+    position: absolute;
+    bottom: 12px;
+    left: 30%;
+}
+/*-----------------------------------------------------sidebar---------------------------------*/
+.sidebar-accordion{
+    color: black;
+    width: 100%!important;
+    margin: 0px;
+    padding: 10px;
+    background-color: rgba(1,1,1,.5);
+    margin-top: -20px;
+    /*border: thin solid red;*/
+}
+.panel{
+    margin: 5px;
+    margin-top: 10px;
+}
+.panel-group{
+    margin-left: -10px;
+    text-align: center;
+    font-size: 18px;
+    font-family:monospace;
+}
+.panel-group a{
+    text-decoration: none;
+}
+.panel-title{
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin-top: 7px;
+}
+.panel-title a{
+    text-decoration: none;
+    font-weight: bold;
+}
+.panel-body{
+    /*margin-top: 30px;*/
+}
+.panel-body a{
+    text-decoration: none;
+    color: black;
+}
+.remove{
+    position: relative;
+    margin-left: 90%;
+    margin-top: 2%;
+    border: thin solid black;
+    text-align: center;
+    /*padding: 1px;*/
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    height: 30px;
+    width: 30px;
+    transition: 1s ease-in-out;
+}
+.remove .glyphicon-remove{
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    margin-top: 3px;
+    /*border: thin solid blue;*/
+    /*text-align: center;*/
+}
+.showbtn{
+    position: absolute;
+    margin-left: 0px;
+    margin-top:-5px;
+    border: thin solid black;
+    text-align: center;
+    /*padding: 1px;*/
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    height: 30px;
+    width: 30px;
+    display: none;
+    transition: 1s ease-in-out;
+}
+.showbtn .glyphicon-tasks{
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    margin-top: 3px;
+    /*text-align: center;*/
+}
+/*--------------------------------------dropdowncontent-----------------------------------*/
+.dropdown ul{
+    background-color: #004059;
+    border: thin solid black;
+}
+#profilepicture img{
+    height: 100px; 
+    width: 100px;
+}
+#profilename{
+    font-size: 20px;
+    font-weight: bold;
+    color: white; 
+    padding: 15px;
+}
+#profilelogout a{
+    color: white;
+    text-decoration: none;
+    /*margin: -2px;*/ 
+    padding: 15px;
+}
+@media only screen and (max-width: 1000px){
+    .icon-bar{
+        background-color: black;
+        margin-top: 10px;
+    }   
+    ul{
+        background-color: #004059;
+        color: black;
+    }
+    .navbar-brand-name{
+        position: relative;
+        z-index: 1;
+        font-size: 23px!important;
+        color: white!important;
+        text-shadow: 2px 2px black;
+    }
+    .sidebar-accordion{
+        color: black;
+        width: 100%!important;
+        margin: 0px;
+        padding: 10px;
+        background-color: rgba(1,1,1,.5);
+        margin-top: -20px;
+        /*border: thin solid red;*/
+    }
+    .notification{
+        height: 350px;
+        width: 300px;
+        background-color: #004059;
+        border: thin solid black;
+        position: absolute;
+        margin-top: 0%;
+        margin-left: -10%;
+        display: none;
+        z-index: 100;
+    }
+    .filter a{
+        display: block;
+    }
+}
+
+.sidebarcontainer{
+    background-color: #08507F;
+    min-height: 100vh;
+}
+.sidebarcontainer .panel-heading,.sidebarcontainer .panel-default{
+    background-color: transparent!important;
+    border: none;
+    color: white;
+    border-bottom: thin solid #002433;
+}
+.panel-body a{
+    color: rgba(255,255,255,.7);
+}

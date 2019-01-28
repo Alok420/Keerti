@@ -1,0 +1,194 @@
+
+
+.jobprofile{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.employerimage img{
+	height: 350px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+}
+
+#jobtitle{
+	margin-left: 20px;
+	color: black;
+	font-size: 23px;
+}
+
+#emailaddress{
+	margin-left: 20px;
+	color: black;
+	font-size: 18px;
+}
+#Website{
+
+	margin-left: 20px;
+	color:black;
+	font-size: 18px;
+}
+
+#Telephone{
+	margin-left: 20px;
+	color: black;
+	font-size: 18px;
+
+}
+
+
+#name{
+	margin-left: 20px;
+	color: black;
+	font-size: 18px;
+
+}
+
+#joblocation{
+	font-size: 18px;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: black;
+	margin-left: 20px;
+
+}
+
+#applynow{
+	float: center;
+  display: inline-block;
+  height: 40px;
+  width: 220px;
+  margin: 0 40px 0 16px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  background-color: #428bca;
+  cursor: pointer;
+  outline: none;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	width: 180px;
+	border: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	color: white;
+	height: 35px;
+	font-size: 20px;
+}
+
+#applynow:hover{
+ background: green;
+}
+
+.jobpostedby{
+
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	width: auto;
+	min-height: 350px;
+	background: white;
+
+}
+
+.jobpostedby img{
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	width: 200px;
+	height: 150px;
+	margin-left: 80px;
+
+
+}
+
+#postname{
+	margin-left: 80px;
+	font-size: 18px;
+	margin-top: 5px;
+
+}
+
+#post{
+	margin-left: 80px;
+	font-size: 18px;
+
+}
+
+#co{
+	margin-left: 80px;
+	font-size: 18px;
+
+}
+
+#location{
+	margin-left: 80px;
+	font-size: 18px;
+
+}
+
+#jobposted{
+	
+	height: 40px;
+	line-height: 40px;
+	background: #428bca;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+
+}
+
+.bar{
+	width: auto;
+	background: white;
+	height:50px;
+	margin-top: 10px;
+	line-height: 50px;
+	
+	
+}
+
+#rupee{
+	margin-left: 10px;
+}
+
+.card{
+	min-height: 200px;
+	margin-top: 10px;
+}
+
+.content{
+	margin-left: 20px;
+	padding: 10px;
+	font-family: 18px;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+#cat{
+	display: inline;
+	width: 80px;
+	height: auto;
+	background:#c7ecee;
+	font-size: 18px;
+	margin-left: 20px;
+	margin-top: 20px;
+
+}
+
+#nav-home-tab.active{
+	border-bottom: 5px solid gray;
+}
+
+#nav-profile-tab.active{
+		border-bottom: 5px solid gray;
+
+
+	}
+
+	#nav-contact-tab.active{
+		border-bottom: 5px solid gray;
+
+	}

@@ -1,0 +1,40 @@
+body{
+	margin:0;
+	padding: 0;
+	background: #dfe6e9;
+}
+
+#check{
+
+
+	font-size: 20px;
+	color: green;
+}
+
+#cancel{
+	font-size: 20px;
+	color: red;
+}
+
+#pdf{
+	font-size: 30px;
+	color: #b2bec3;
+}
+
+#download{
+	font-size: 30px;
+	color: #b2bec3;
+	margin-left: 15px;
+
+}
+
+#nav-home-tab{
+	font-size: 20px;
+
+}
+
+#nav-home-tab:hover{
+	border-bottom: 2px solid gray;
+
+}
+
