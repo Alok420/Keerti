@@ -26,6 +26,8 @@ interface DBDeclare {
 
     public function getIndianDate();
 
+    public function getIndianDateTime();
+
     public function loginCheck($type);
 }
 
@@ -54,6 +56,12 @@ class DB implements DBDeclare {
     public function getIndianDate() {
         date_default_timezone_set("Asia/Calcutta");
         $date = date("Y/m/d");
+        return $date;
+    }
+
+    public function getIndianDateTime() {
+        date_default_timezone_set("Asia/Calcutta");
+        $date = date("Y/m/d H:i:s");
         return $date;
     }
 
@@ -108,7 +116,7 @@ class DB implements DBDeclare {
         }
     }
 
-    function fileUploadWithTable($files, $table, $id = 0, $location = "./",$size = "11m", $type = "jpg,png") {
+    function fileUploadWithTable($files, $table, $id = 0, $location = "./", $size = "11m", $type = "jpg,png") {
 
         $returnarray = array();
         $sizearr = str_split($size);
@@ -255,9 +263,9 @@ class DB implements DBDeclare {
                 array_push($returnarray, "File type not matched: Type given=$type and file type=" . $extension);
             }
             if ($location == "./") {
-                $name = "$location" .time().$file["name"];
+                $name = "$location" . time() . $file["name"];
             } else {
-                $name = "$location/" .time().$file["name"];
+                $name = "$location/" . time() . $file["name"];
             }
             if ($boolean === TRUE) {
                 $uploadstatus = move_uploaded_file($file["tmp_name"], $name);
@@ -685,9 +693,9 @@ $(document).ready(function(){
         foreach ($data as $column => $value) {
             if (count($data) > 0) {
                 if ($column == "password") {
-                        $pass = password_hash($value, PASSWORD_DEFAULT);
-                        $value = $pass;
-                    }
+                    $pass = password_hash($value, PASSWORD_DEFAULT);
+                    $value = $pass;
+                }
                 $SQL = "update $table set $column='$value' where id=$id";
 //                echo $SQL;
                 $m = $this->conn->query($SQL);
@@ -702,6 +710,7 @@ $(document).ready(function(){
         }
         return $this->returnarray;
     }
+
     function insert($data, $table) {
         $this->returnarray = array();
         $i = 0;
@@ -710,7 +719,7 @@ $(document).ready(function(){
             $i++;
             if (count($data) >= 1) {
                 if ($i == 1) {
-                   if ($column == "password") {
+                    if ($column == "password") {
                         $pass = password_hash($value, PASSWORD_DEFAULT);
                         $value = $pass;
                     }
