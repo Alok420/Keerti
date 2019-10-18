@@ -1,7 +1,6 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
 <html>
     <head>
         <?php
@@ -10,7 +9,7 @@ include './LoginCheck.php';
         include '../Config/ConnectionObjectOriented.php';
         ?>   
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <style>
+        <style>
 <?php include './recruiter_page.css'; ?>
             .main-column-form {
                 padding: 20px 20px!important;
@@ -88,7 +87,7 @@ include './LoginCheck.php';
 
                                 <div class="form-group">
                                     <label for="job_title">All candidates approved by branch and company</label>
-                                    <select name="hiring_id" class="form-control">
+                                    <select name="hiring_id" style="display: block;">
                                         <?php
                                         $db = new DB($conn);
                                         $sql = "select * from hiring where employers_id=$id and branchapproval=1 and employerapproval=1";
@@ -112,22 +111,24 @@ include './LoginCheck.php';
 
                                 <div class="form-group">
                                     <label for="experiencerequired">Appointment Date:</label>
-                                    <input type="date" class="form-control" id="experiencerequired" placeholder="Enter Experience Required" name="candidates_appointment_date">
+                                    <input type="text" class="form-control datepicker" id="experiencerequired" placeholder="Set appontment date" name="candidates_appointment_date">
                                 </div>
                                 <div class="form-group">
                                     <label for="experiencerequired">Appointment time:</label>
-                                    <input type="time" class="form-control" id="experiencerequired" placeholder="Enter Experience Required" name="candidates_appointment_time">
+                                    <input type="time" class="form-control" id="experiencerequired" placeholder="Set appontment time" name="candidates_appointment_time">
                                 </div>
                                 <div class="form-group">
                                     <label for="jobdescription">Description:</label>
                                     <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-default">Submit</button>
-                                <div><?php
+                                <div style="color: red;">
+                                    <?php
                                     if (isset($_GET["info"])) {
-                                        echo $_GET["info"] == 1 ? "Add more appointment" : " Not added try again or contact to developer";
+                                        echo $_GET["info"];
                                     }
-                                    ?></div>
+                                    ?>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -1,67 +1,159 @@
+<?php session_start(); ?>
 <html>
     <head>
         <link href="css/Homepage.css" rel="stylesheet" type="text/css"/>
-
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <?php
-        session_start();
         include './Common/colors.php';
         include './Config/ConnectionObjectOriented.php';
         include './Config/DB.php';
         include './Common/CDN.php';
         ?>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-
+        <!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>--> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
-            var six_digit_random_number;
-            $(document).ready(function () {
-                $(".numberverification").height($(".body").height());
-                $(".emailverification").height($(".body").height());
-                $('#contactnumber').blur(function () {
-                    $('.numberverification').slideDown(1000);
-                    $('.numberverification h3').append($(" - " + "#contactnumber").val());
-                });
-                $('#EmailID').blur(function () {
-                    var email = $("#EmailID").val();
-                    if (!email == "") {
-                        var subject = "Email verification";
-                        var body = "Please verify your email address: OTP IS ";
-                        $('.emailverification').slideDown(1000);
-                        $('.emailverification h3').append(" - " + email);
-                        $('.emailverification h2').text(email + " : ");
-                        sentOtp(email, subject, body);
-                    }
-
-                });
-
-                $('#otpcheck').click(function () {
-                    var userotp = $("#emailotptextbox").val();
-                    if (userotp == six_digit_random_number) {
-                        $("#otpstatus").text("Email ID verification is done");
-
-                        $('.emailverification').slideUp(2000, function () {
-                            $('.emailverification').remove();
-                            $('#submit').show();
-
-                        });
-                    } else {
-                        $("#otpstatus").text("Incorrect OTP");
-                    }
-                });
-            });
-            function sentOtp(to, subject, body) {
-                six_digit_random_number = Math.floor(Math.random() * 100000) + 999999;
-                $.post("controller/MailSendingController.php",
-                        {
-                            to: "" + to,
-                            subject: "" + subject,
-                            body: "" + body + " " + six_digit_random_number
-                        },
-                        function (data, status) {
-
-                        });
+            var fields = {
+                fname: false,
+                lname: false,
+                dob: false,
+                email: false,
+                mobile: false,
+                username: false,
+                password: false,
+                confirmpassword: false
+            };
+            function getFieldData(id) {
+                var data = $('#' + id).val();
+                return data;
             }
+            function fname(fname) {
+                var re = /^[a-zA-Z ]+$/;
+                fields["fname"] = re.test(fname);
+            }
+            function lname(lname) {
+                var re = /^[a-zA-Z ]+$/;
+                fields["lname"] = re.test(lname);
+            }
+            function dob(dob) {
+                var re = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                fields["dob"] = re.test(dob);
+            }
+            function filterPhone(mobile) {
+                var pattern = new RegExp("^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$");
+                fields["mobile"] = pattern.test(mobile);
+            }
+            function validateEmail(email) {
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                fields["email"] = re.test(email);
+            }
+            function ValidateUsername(username) {
+                var re = /^(?!\s*$).+/;
+                fields["username"] = re.test(username);
+            }
+            function ValidatePassword(password) {
+                var re =  new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{4,})");
+                fields["password"] = re.test(password);
+            }
+            function confirm_password(password, confirmpassword) {
+                if (password != confirmpassword) {
+                    fields["confirmpassword"] = false;
+                } else {
+                    fields["confirmpassword"] = true;
+                }
+            }
+            function validate(fields) {
+                var finallyreturn = true;
+                fname(getFieldData("fname"));
+                lname(getFieldData("lname"));
+                dob(getFieldData("dob"));
+                filterPhone(getFieldData('mobile'));
+                validateEmail(getFieldData('email'));
+                ValidateUsername(getFieldData('username'));
+                ValidatePassword(getFieldData('password'));
+                confirm_password(getFieldData('password'), getFieldData('confirmpassword'));
+                for (var key in fields) {
+                    if (fields.hasOwnProperty(key)) {
+                        console.log(key + "--" + fields[key]);
+                        if (fields[key] === false) {
+                            finallyreturn = false;
+                            $('.errormessage').text(key.toString().toUpperCase() + " is invalid");
+                            $("#" + key.toString()).css("border", "thin solid red");
+                            $("#" + key.toString()).css("box-shadow", "1px 1px 10px red");
+                            return false;
+                        } else {
+                            finallyreturn = true
+                            $("#" + key.toString()).css("border", "thin solid green");
+                            $("#" + key.toString()).css("box-shadow", "1px 1px 10px green");
+                            $('.errormessage').text(key.toString().toUpperCase() + " valid");
+
+                        }
+                    }
+                }
+                return finallyreturn;
+            }
+            var six_digit_random_number;
+//            $(document).ready(function () {
+//                $(".numberverification").height($(".body").height());
+//                $(".emailverification").height($(".body").height());
+//                $('#mnumber').blur(function () {
+//                    var contact = $('#mnumber').val();
+//                    if (!filterPhone(contact)) {
+//                        alert("Mobile number is invalid");
+//                        $('#mnumber').focus();
+//                    } else {
+////                        $('.numberverification').slideDown(1000);
+////                        $('.numberverification h3').append($(" - " + "#mnumber").val());
+//                    }
+//                });
+//                $('#EmailID').blur(function () {
+//                    var email = $("#EmailID").val();
+//                    if (!validateEmail(String(email).toLocaleLowerCase())) {
+//                        alert('not a valid e-mail address');
+//                        $("#EmailID").focus();
+//                    } else {
+//                        if (!email == "") {
+////                            var subject = "Email verification";
+////                            var body = "Please verify your email address: OTP IS ";
+////                            $('.emailverification').slideDown(1000);
+////                            $('.emailverification h3').append(" - " + email);
+////                            $('.emailverification h2').text(email + " : ");
+////                            sentOtp(email, subject, body);
+//                        }
+//
+//                    }
+//
+//
+//                });
+////                $('#otpcheck').click(function () {
+////                    var userotp = $("#emailotptextbox").val();
+////                    if (userotp == six_digit_random_number) {
+////                        $("#otpstatus").text("Email ID verification is done");
+////
+////                        $('.emailverification').slideUp(2000, function () {
+////                            $('.emailverification').remove();
+////                            $('#submit').show();
+////
+////                        });
+////                    } else {
+////                        $("#otpstatus").text("Incorrect OTP");
+////                    }
+////                });
+////            });
+////            function sentOtp(to, subject, body) {
+////                six_digit_random_number = Math.floor(Math.random() * 100000) + 999999;
+////                $.post("controller/MailSendingController.php",
+////                        {
+////                            to: "" + to,
+////                            subject: "" + subject,
+////                            body: "" + body + " " + six_digit_random_number
+////                        },
+////                        function (data, status) {
+////
+//            });
+//            }
         </script>
         <style type="text/css">
 <?php include './css/Footer.css'; ?>
@@ -116,10 +208,14 @@
                 width:300px;
             }
             #submit{
-                display: none;
+                /*display: none;*/
+            }
+            .errormessage{
+                color:red;
             }
 <?php include 'css/SignupForm_Employee.css'; ?>
         </style>
+
     </head>
     <body>
         <?php
@@ -134,12 +230,13 @@
                         <div class="card-body">
                             <img src="images/Employee.png" style="width:30%">
                             <h2 class="py-3"> Employee Registration</h2>
-                            <p>Welcome To Keerti Job Portal If You Are New User Register Now And Build Carrer From Now.
-
+                            <p>Welcome To Keerti Job Portal.<br>New user..? Register now
                             </p>
                             <h2 class="py-3">Login Now</h2>
-                            <p>If You Have Already Account <div class="flex-box">
-                                <a href="Login_User.php"><button type="button" class="btn1 btn-info">Login</button></a>
+                            <p>Already registered..?<div class="flex-box">
+                                <a href="Login_User.php">
+                                    <button type="button" class="btn1 btn-info">Login</button>
+                                </a>
                             </div>
 
                             </p>
@@ -147,9 +244,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 py-5  border border-dark">
-                    <h4 class="pb-4">Please fill with your details</h4>
+                    <h4 class="pb-4">Please fill with your details <small class="errormessage"></small></h4>
 
-                    <form method="POST" id="commentForm" action="controller/SignupFormController.php" enctype="multipart/form-data">
+                    <form method="POST" onsubmit="return validate(fields)" id="commentForm" action="controller/SignupFormController.php" enctype="multipart/form-data">
                         <div style="" class="row">
                             <div class="col-md-12">
                                 <label>Select branch</label>
@@ -165,7 +262,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>First Name</label>
-                                <input id="Name" name="fname" minlength="2" placeholder="First Name" class="form-control" required type="text">
+                                <input id="fname" name="fname" onblur="validate(fields)" minlength="2" placeholder="First Name" class="form-control" required type="text">
                                 <span class="emsg1 hidden1">Please Enter a Valid Name</span>
 
 
@@ -173,7 +270,7 @@
 
                             <div class="form-group col-md-6">
                                 <label>Last Name</label>
-                                <input type="text" minlength="2" class="form-control" name="lname" id="inputEmail4" placeholder="Last Name">
+                                <input type="text" minlength="2" onblur="validate(fields)" class="form-control" name="lname" id="lname" placeholder="Last Name">
                                 <span class="emsg2 hidden2">Please Enter a Valid Name</span>
                             </div>
                         </div>
@@ -181,7 +278,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Date Of Birth</label>
-                                <input id="Date." name="dob" placeholder="Birthday." class="form-control" type="date" required>
+                                <input id="dob" name="dob" placeholder="Birthday" class="form-control datepicker" type="text" required>
                             </div>
                             <!--                            <div class="form-group col-md-6">
                                                             <label>Current Address</label>
@@ -234,11 +331,11 @@
                                                         </div>-->
                             <div class="form-group col-md-6">
                                 <label>Email</label>
-                                <input id="EmailID" name="email" placeholder="Email" class="form-control" required type="Email">
+                                <input id="email" onblur="validate(fields)" name="email" placeholder="Email" class="form-control" required type="Email">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Mobile Number</label>
-                                <input id="mnumber" name="mnumber" minlength="10" placeholder="Mobile Number" class="form-control" required  type="text">
+                                <input id="mobile" onblur="validate(fields)" name="mnumber" minlength="10" placeholder="Mobile Number" class="form-control" required  type="text">
                             </div>
                             <!--                            <div class="form-group col-md-6">
                                                             <label>Land Line Number</label>
@@ -289,20 +386,20 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>User name</label>
-                                    <input id="username" name="user_name" placeholder="johndoe1234" class="form-control" type="text" required minlength="4">  
+                                    <input id="username" name="user_name" onblur="validate(fields)" placeholder="johndoe1234" class="form-control" type="text" required minlength="4">  
                                     <span class="username hidden1">Please Enter a Valid Name</span>
 
 
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control"  name="password" required id="password" placeholder="********">
+                                    <label>Password (Min Length 4,At least one uppercase,lowercase,digit,spacial character)</label>
+                                    <input type="password" onblur="validate(fields)" class="form-control"  name="password" required id="password" placeholder="********">
                                     <span class="pass hidden2">Please Enter a Valid Name</span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Confirm Password</label>
-                                    <input type="password" class="form-control"  name="password" required id="password" placeholder="********">
+                                    <input type="password" class="form-control" onblur="validate(fields)"  name="password" required id="confirmpassword" placeholder="********">
                                     <span class="pass hidden2">Please Enter a Valid Name</span>
                                 </div>
                             </div>
@@ -357,30 +454,7 @@
 
             </div>
         </div>
-        <script>
-            $("#commentForm").validate();
-            jQuery.validator.setDefaults({
-                debug: true,
-                success: "valid"
-            });
-            $("#myform").validate({
-                rules: {
-                    EmailID: {
-                        required: true,
-                        email: true
-                    }
-                }
-            });
-            $("#myform").validate({
-                rules: {
-                    mnumber: {
-                        required: true,
-                        number: true
-                    }
-                }
-            });
 
-        </script>
         <?php include './Common/Footer.php'; ?>
 
     </body>

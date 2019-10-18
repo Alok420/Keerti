@@ -1,7 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -19,6 +19,8 @@ include './LoginCheck.php';
 <?php include './RootAdmin_page_header.php';?>
         <?php
         if ((isset($_GET["sdate"]) && !empty($_GET["sdate"])) && (isset($_GET["sdate"]) && !empty($_GET["sdate"]))) {
+            $_GET["sdate"]=$db->jqToSqlDate($_GET, "sdate");
+            $_GET["edate"]=$db->jqToSqlDate($_GET, "edate");
             $startdate = $_GET["sdate"];
             $enddate = $_GET["edate"];
             ?>

@@ -1,7 +1,6 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
 <html>
     <head>
         <?php
@@ -77,22 +76,27 @@ include './LoginCheck.php';
                         <div id="jobpostingform">
                             <h2 style="text-align:center;">Job Posting Form</h2>
                             <hr>
+                            <div style="font-weight: bold; color: green;">
+                                <?php
+                                if (isset($_REQUEST["info"])) {
+                                    echo $_REQUEST["info"];
+                                }
+                                ?>
+                            </div>
                             <form action="../controller/JobPostController.php" method="POST">
                                 <input type="hidden" name="postedby" value="<?php echo $type; ?>">
                                 <div class="form-group">
-                                    <label for="job_title">Select company</label>
-                                    <select name="employers_id" class="form-control">
-                                        <?php
-                                        $db = new DB($conn);
-                                        $emplist = $db->select("employers", "*", array("id" => $id));
-                                        while ($emp = $emplist->fetch_assoc()) {
-                                            ?>
-                                            <option value="<?php echo $emp["id"] ?>"><?php echo $emp["Organization_Name"] ?></option>
-                                            <?php
-                                        }
+                                    <?php
+                                    $db = new DB($conn);
+                                    $emplist = $db->select("employers", "*", array("id" => $id));
+                                    while ($emp = $emplist->fetch_assoc()) {
                                         ?>
+                                    <input type="hidden" value="<?php echo $emp["id"] ?>" name="employers_id">
+                                        <?php
+                                    }
+                                    ?>
 
-                                    </select>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="job_title">Job Title</label>
@@ -104,15 +108,25 @@ include './LoginCheck.php';
                                 </div>
                                 <div class="form-group">
                                     <label for="jobpostedon">Job Posted On:</label>
-                                    <input type="date" class="form-control" id="job_posted_on" placeholder="Enter Job Posted On" name="job_posted_on">
+                                    <input type="text" class="form-control datepicker" id="job_posted_on" placeholder="Enter Job Posted On" name="job_posted_on">
                                 </div>
                                 <div class="form-group">
                                     <label for="vacancyvalidtill">Vacancy Valid Till:</label>
-                                    <input type="date" class="form-control" id="vacancy_valid_till" placeholder="Enter Job Id" name="vacancy_valid_till">
+                                    <input type="text" class="form-control datepicker" id="vacancy_valid_till" placeholder="Enter Job Id" name="vacancy_valid_till">
                                 </div>
                                 <div class="form-group">
-                                    <label for="packagerangeoffered">Package Ranged Offered (Yearly basis): Example(10000 to 50000) </label>
-                                    <input type="text" class="form-control" id="packagerangeoffered" placeholder="10000 to 50000" name="Package_Ranged_Offered">
+                                    <label for="packagerangeoffered">Package Ranged Offered (Yearly basis) </label>
+                                    <select id="Package_Ranged_Offered" name="Package_Ranged_Offered" class="form-control salary" >
+                                        <option value="1"><1Lac</option>
+                                        <script>
+                                            $(document).ready(function () {
+                                                for (var i = 1; i <= 100; i++) {
+                                                    $(".salary").append("<option value='" + i + "'>" + i + "Lac</option>");
+                                                }
+                                            });
+
+                                        </script>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="experiencerequired">Experience Required:</label>
@@ -126,9 +140,7 @@ include './LoginCheck.php';
                                     <label for="desiredskillset">Desired Skill Set:</label>
                                     <input type="text" class="form-control" id="desiredskillset" placeholder="Enter Desired Skill Set" name="desired_skill_set">
                                 </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="remember"> Remember me</label>
-                                </div>
+
                                 <button type="submit" class="btn btn-lg btn-default">Submit</button>
                             </form>
                         </div>

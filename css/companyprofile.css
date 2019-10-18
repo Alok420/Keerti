@@ -8,18 +8,17 @@ body{
 }
 .imgbox{
     background-color: #003246;
+    color: white;
 }
 .image-container {
     position: relative;
-    /*border: thin solid black;*/
-    width: 30%;
     border-radius: 5px;
-    padding: 15px;
+    padding: 5px;
 }
 .companycontent{
     font-size: 18px;
     font-family:monospace;
-    
+
 }
 .companycontent span{
     font-weight: bold;
@@ -35,8 +34,7 @@ body{
     padding: 10px;
 }
 #imgProfile{
-    height: 200px;
-    width: 100%;
+    max-height: 100px;
     border-radius: 5px;
 }
 
@@ -81,50 +79,49 @@ body{
     text-decoration: none;
     color: black;
     background: transparent;
-    
+
 }
 
 .d-block{
-     font-size: 40px;
-     font-family: serif;
-     font-weight: bold;
+    font-size: 40px;
+    font-family: serif;
+    font-weight: bold;
 }
 @media screen and (max-width: 1200px) {
- #imgProfile{
-    height: 200px;
-    width: 300px;
-    border-radius: 5px;
-    /*border: thin solid red;*/
-}
-.image-container {
-    position: relative;
-    /*border: thin solid black;*/
-    width: 100%!important;
-    border-radius: 5px;
-    padding: 15px;
-    /*border: thin solid blue;*/
-}
-.profilehr{
-    width: 100%!important;
-}
-.applynow{
-    margin-left: 0px!important;
-    padding: 5px;
-    font-size: 19px;
-    border-radius: 30px;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0,128,0,.8);
-    color: white;
-    transition: 0.2s ease-in-out;
-}
-.applynow:hover{
-    text-decoration: none;
-    background-color: transparent;
-    color: black;
-    border: none;
-    border-bottom: thick solid rgba(0,128,0,.8);
-   
-}
+    #imgProfile{
+     
+        border-radius: 5px;
+        /*border: thin solid red;*/
+    }
+    .image-container {
+        position: relative;
+        /*border: thin solid black;*/
+        width: 100%!important;
+        border-radius: 5px;
+        padding: 15px;
+        /*border: thin solid blue;*/
+    }
+    .profilehr{
+        width: 100%!important;
+    }
+    .applynow{
+        margin-left: 0px!important;
+        padding: 5px;
+        font-size: 19px;
+        border-radius: 30px;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0,128,0,.8);
+        color: white;
+        transition: 0.2s ease-in-out;
+    }
+    .applynow:hover{
+        text-decoration: none;
+        background-color: transparent;
+        color: black;
+        border: none;
+        border-bottom: thick solid rgba(0,128,0,.8);
+
+    }
 
 }

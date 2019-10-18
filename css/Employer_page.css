@@ -2,36 +2,32 @@
 
 * {box-sizing: border-box;}
 
-/*body {background-color: #eee;}*/
-
-.container {
-    padding: 1rem 1rem;
-    max-width: 1200px;
-    min-width: 320px;
-    margin: 0 auto;
-}
 
 
 #ul1 {
     list-style: none;
     /*width: 100%;*/
 }
-#li1 {
+
+.subcontainer {
     padding: 1rem; 
     background: #fff;
     color: #202020;
     border-radius: 5px;
     border: 1px solid #ccc;
     opacity: 0.9;
+    height: 300px;
 }
 
-#li1:hover{
-    box-shadow: 1px 2px 3px 0px rgba(25,25,25,0.6);
+.subcontainer:hover{
+    box-shadow: 1px 2px 30px 0px rgba(25,25,25,0.2),-1px -2px 30px 0px rgba(25,25,25,0.2);
     opacity: 1;
     transition:all 0.5s ease;  
 }
 
-
+subcontainer *{
+    overflow: hidden;
+}
 h1 {
     background-color: darken(steelblue, 10%);
     color: #fff;
@@ -100,13 +96,17 @@ img {
     font-weight: 500;
     padding-top: 10px!important;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.2em;
     color: white;
     background-color: #428bca;
     cursor: pointer;
     outline: none;
 
+}
+.butt1bottom{
+    position: absolute;
+    bottom: 20px;
 }
 /*
 .butt1{
@@ -120,7 +120,7 @@ img {
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.2em;
     color: white;
     background-color: #428bca;

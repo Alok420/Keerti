@@ -1,9 +1,10 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+  
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -60,17 +61,17 @@
                 box-shadow: 2px 2px #009999;
             }
             .row-title h4{
-            margin:0px; 
-            padding: 20px; 
-            color: #003246;
-            margin-top: 10px;
-            text-shadow: 1px 1px lightgray;
-            padding-bottom: 2px;
-            /*text-align: center;*/
-            font-weight: bold; 
-            font-size: 20px; 
-            letter-spacing: 1px; 
-            text-transform: uppercase;
+                margin:0px; 
+                padding: 20px; 
+                color: #003246;
+                margin-top: 10px;
+                text-shadow: 1px 1px lightgray;
+                padding-bottom: 2px;
+                /*text-align: center;*/
+                font-weight: bold; 
+                font-size: 20px; 
+                letter-spacing: 1px; 
+                text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -103,9 +104,10 @@
                 </div>
                 <div class="col-sm-9 maincolumn">
                     <h1 style="text-align: center; margin: 0px; font-size: 35px; font-weight: bold; padding: 15px; text-shadow: 2px 2px lightgray; text-transform: capitalize; letter-spacing: 2px;">Job requested by recruiters</h1>
-                     <div class="filter">
+                    <div class="filter">
                         <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?branchapproval=1">All approved</a>
                         <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?branchapproval=0">All Not approved</a>
+                        <a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?">All</a>
                     </div>
                     <div class="row row-title" >
                         <div class="col-sm-3">
@@ -123,10 +125,10 @@
                     </div>
 
                     <?php
-                    $sql = "select * from hiring where requestedBy='employers'";
+                    $sql = "select * from hiring where requestedBy='employers' and candidates_id in(select id from candidates where branches_id=" . $_SESSION["loggedinid"] . ")";
                     if (isset($_GET["branchapproval"])) {
                         $employerapproval = $_GET["branchapproval"];
-                        $sql = "select * from hiring where requestedBy='employers' and branchapproval=" . $_GET['branchapproval'];
+                        $sql = "select * from hiring where requestedBy='employers' and candidates_id in(select id from candidates where branches_id=". $_SESSION["loggedinid"].") and branchapproval=" . $_GET['branchapproval'];
                     }
                     $datalist = $conn->query("$sql");
                     echo '<h2>Total Record: ' . $datalist->num_rows . '</h2>';
@@ -178,7 +180,7 @@
                                 ?>
                                 <br><br>
                                 <?php
-                                echo $one["employerapproval"] == 0 ? "<button id='approve' class='btn btn-success' disabled onclick='approval(\"1\",\"" . $one['id'] . "\",\"hiring\")'>Employer Approvel</button>" : "<button id='approved' class='btn btn-default' disabled  onclick='approval(\"0\",\"" . $one['id'] . "\",\"hiring\")'>Employer Approved</button>";
+                                echo $one["employerapproval"] == 0 ? "<button id='approve' class='btn btn-success' disabled onclick='approval(\"1\",\"" . $one['id'] . "\",\"hiring\")'>Recruiter Approvel</button>" : "<button id='approved' class='btn btn-default' disabled  onclick='approval(\"0\",\"" . $one['id'] . "\",\"hiring\")'>Recruiter Approved</button>";
                                 ?>
 
                             </div>

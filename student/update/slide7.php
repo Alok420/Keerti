@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <?php include '../LoginCheck.php'; ?>
 <?php include '../../Config/ConnectionObjectOriented.php'; ?>
@@ -59,7 +60,8 @@ $db = new DB($conn);
                                             <option><?php echo $one["employment_type"]; ?></option>
                                             <option>Full Time</option>
                                             <option>Part Time</option>
-                                            <option>Both</option>
+                                            <option>Weekend</option>
+                                            <option>Any</option>
                                         </select>
                                     </div>
                                 </div>
@@ -76,7 +78,18 @@ $db = new DB($conn);
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="relocate">willing to relocate:</label>
                                     <div class="col-sm-7">          
-                                        <input type="text" value="<?php echo $one["relocate"];?>" class="form-control" id="relocate" placeholder="Enter willng to relocate" name="relocate">
+                                        <select name="relocate">
+                                            <option value="<?php echo $one["relocate"]; ?>"><?php echo $one["relocate"]; ?></option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5" for="relocate">Preferred location:</label>
+                                    <div class="col-sm-7">          
+                                        <input type="text" value="<?php echo $one["prefered_location"]; ?>" class="form-control" id="relocate" placeholder="Enter willng to relocate" name="relocate">
                                     </div>
 
                                 </div>
@@ -89,8 +102,10 @@ $db = new DB($conn);
                                 </div>
                             </form>
                         </div> 
-                    <?php }
-                } ?>
+                        <?php
+                    }
+                }
+                ?>
                 <button class="addbtn" id="job_preference">Add more job_preference</button>
 
             </div>

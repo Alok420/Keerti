@@ -1,7 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -14,6 +14,7 @@ include './LoginCheck.php';
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
             function approval(branchapproval, id, table) {
+                $("h1").append("<img src='../images/loading.gif' height='50' width='70'>")
                 $.post("../controller/approval.php",
                         {
                             id: "" + id,
@@ -131,7 +132,7 @@ include './LoginCheck.php';
                     <?php include './RootAdmin_page_sidebar.php'; ?>
                 </div>
                 <div class="col-sm-9 maincolumn">
-                    <h1>All branches</h1>
+                    <h1 style="font-family: sans-serif;"><?php echo $allbranches->num_rows; ?> Branches</h1>
                     <div class="row">
                         <?php
                         while ($branch = $allbranches->fetch_assoc()) {
@@ -140,15 +141,18 @@ include './LoginCheck.php';
                             $count = $db->select("candidates", "count(*) as total", $where);
                             $data2 = $db->select("login_credentials", "*", array("branches_id" => $branch["id"]));
                             $lc = $data2->fetch_assoc();
+                            if($count->num_rows>0)
                             $one = $count->fetch_assoc();
                             ?>
                             <div class="cardsforbranch">
-                                <div class="branchstnumber"><?php echo $one["total"]; ?></div>
+                                <div class="branchstnumber"><?php echo $one["total"]; ?> Candidates</div>
                                 <div class="branchname">
                                     <?php
+                                    echo "(".$branch["id"].") ";
                                     echo $branch["name"];
                                     ?>
-                                </div> <?php
+                                </div> 
+                                <?php
                                 echo $lc["mbapproval"] == 0 ? "<button id='approve' class='btn btn-warning' onclick='approval(\"1\",\"" . $lc['id'] . "\",\"login_credentials\")'>Main Branch Approvel</button>" : "<button id='approved' onclick='approval(\"0\",\"" . $lc['id'] . "\",\"login_credentials\")' class='btn btn-success'>Main Branch Approved</button>";
                                 ?>
                                 

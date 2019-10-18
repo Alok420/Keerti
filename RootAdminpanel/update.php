@@ -1,4 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
+
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates

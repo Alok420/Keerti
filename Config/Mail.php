@@ -1,18 +1,15 @@
 <?php
-
 include '../PHPMailer-master/src/PHPMailer.php';
 include '../PHPMailer-master/src/SMTP.php';
 include '../PHPMailer-master/src/Exception.php';
 
 class Mail {
-
     public $from = "pandayg0@gmail.com";
-    public $frompass = "Sharaswati1";
-
+    public $frompass = "Sharaswati_1";
     function sendMail($to, $subject, $body, $cc = "") {
         $mail = new PHPMailer\PHPMailer\PHPMailer;
         $mail->isSMTP();                            // Set mailer to use SMTP
-        $mail->SMTPDebug = 2;
+        $mail->SMTPDebug = 0;
         $mail->Host = 'smtp.gmail.com';             // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                     // Enable SMTP authentication
         $mail->Username = $this->from;              // SMTP username
@@ -39,7 +36,7 @@ class Mail {
 //            echo 'Message could not be sent.';
             return 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            return "Message sent".$mail->ErrorInfo;
+            return "1";
         }
     }
 

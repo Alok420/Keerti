@@ -1,10 +1,11 @@
 <?php
-    session_start();
+
 if (isset($_SESSION["loggedintype"]) && isset($_SESSION["loggedinid"])) {
-    if($loggedintype==$_SESSION["loggedintype"] || $loggedintype==""){
+    if (in_array($_SESSION["loggedintype"], $loggedintype, TRUE) != FALSE) {
         
+    } else {
+        echo '<script>window.location.href="Login_User.php?";</script>';
     }
-    
 } else {
-    header("location:Login_User.php");
+    echo '<script>window.location.href="Login_User.php?";</script>';
 }

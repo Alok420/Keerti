@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
 <?php include '../LoginCheck.php'; ?>
+<!DOCTYPE html>
 <?php include '../../Config/ConnectionObjectOriented.php'; ?>
 <?php include '../../Config/DB.php'; ?>
 
@@ -24,25 +25,28 @@
     <body>
         <?php include './Student_page_header.php'; ?>
         <div class="container-fluid" style="margin-top: 50px;">
-            <ul class="nav nav-tabs nav-stacked">
-                <li><a   href="slide0.php" target="ifr">Personal</a></li>
-                <li><a   href="slide1.php" target="ifr">Education</a></li>
-                <li><a   href="slide2.php" target="ifr">Professional Details</a></li>
-                <li><a   href="slide3.php" target="ifr">Skill Set</a></li>
-                <li><a   href="slide4.php" target="ifr">Professional Experience Details</a></li>
-                <li><a   href="slide5.php" target="ifr">Project Detail</a></li>
-                <li><a   href="slide6.php" target="ifr">Language Known</a></li>
-                <li><a   href="slide7.php" target="ifr">Job Preference</a></li>
-                <li><a   href="slide8.php" target="ifr">Upload Other Data</a></li>
-                <li><a   href="slide9.php" target="ifr">Remuneration Details</a></li>
-                <li><a   href="slide10.php" target="ifr">References</a></li>
-            </ul>
-            <div class="tab-content" style="float: left; width:80%; min-height: 550px; overflow: scroll;">
-                <div id="education" class="tab-pane fade in active">
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li><a   href="slide0.php" target="ifr">Personal</a></li>
+                        <li><a   href="slide1.php" target="ifr">Education</a></li>
+                        <li><a   href="slide2.php" target="ifr">Professional Details</a></li>
+                        <li><a   href="slide3.php" target="ifr">Skill Set</a></li>
+                        <!--<li><a   href="slide4.php" target="ifr">Professional Experience Details</a></li>-->
+                        <li><a   href="slide5.php" target="ifr">Project Detail</a></li>
+                        <li><a   href="slide6.php" target="ifr">Language Known</a></li>
+                        <li><a   href="slide7.php" target="ifr">Job Preference</a></li>
+                        <li><a   href="slide8.php" target="ifr">Upload Other Data</a></li>
+                        <li><a   href="slide9.php" target="ifr">Compensation Details</a></li>
+                        <li><a   href="slide10.php" target="ifr">References</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
                     <iframe width="100%" style="min-height: 500px;"name="ifr" src="slide0.php">
                     </iframe>
                 </div>
             </div>
+
         </div>
     </body>
 </html>

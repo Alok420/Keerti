@@ -1,4 +1,3 @@
-
 <script>
     $(document).ready(function () {
         var bool = 0;
@@ -22,13 +21,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="../../Index.php"><img src="../../images/keertiwhite.png" width="150" height="45"> </a> 
-            <a class="navbar-brand" style="font-weight: bold; font-size: 35px; box-sizing: border-box; padding-top: 25px;">Student panel</a>
+            <a class="navbar-brand" href="../../Index.php"><img src="../../images/keertiwhite.png" width="100" height="50"> </a> 
+            <a class="navbar-brand" style="font-weight: bold; font-size: 35px; box-sizing: border-box; padding-top: 25px;">Candidate panel</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../StudentPage.php">Dashboard</a></li>
-                <li id="envelopenotification"><a class="#"><span class="glyphicon glyphicon-envelope"><div class="envelopenotification">14</div></span></a></li>
+                <li id="envelopenotification"><a class="#">
+                        <span class="glyphicon glyphicon-envelope">
+                            <!--<div class="envelopenotification">14</div>-->
+                        </span></a></li>
                 <div class="notification"></div>
                 <!--<li><a class="#">Name</a></li>-->
                 <?php
@@ -45,7 +47,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #00bff3;"></span> &nbsp; <?php echo " " . $one["fname"] . " " . $one["lname"]; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="StudentPage.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Student's Dashboard</a></li>
+                                    <li><a href="StudentPage.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Candidate's Dashboard</a></li>
                                     <li><a href="../../controller/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                                 </ul>
                             </li>    

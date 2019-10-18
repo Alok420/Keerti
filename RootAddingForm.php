@@ -2,14 +2,22 @@
 <html lang="en">
     <head>
         <title>Bootstrap Example</title>
-        <?php include './Common/CDN.php'; ?>
+        <?php
+        include './Common/CDN.php';
+        include './Config/ConnectionObjectOriented.php';
+        ?>
     </head>
     <body>
 
         <?php
         if (isset($_POST["name"]) && isset($_POST["password"])) {
             if (!empty($_POST["name"]) && !empty($_POST["password"])) {
-                if ($_POST["name"] == "a@_123" && $_POST["password"] == "p_@password") {
+                $sql = "select * from username_password_root where username='" . $_POST["name"] . "' and password='" . $_POST["password"]."'";
+                
+                $data = $conn->query($sql);
+                
+                if ($data->num_rows > 0) {
+                     echo "processed";
                     ?>
                     <div class="container">
                         <h2>Root Branch registration form</h2>
@@ -38,6 +46,8 @@
                         </form>
                     </div>
                     <?php
+                } else {
+                    echo 'Wrong username or password';
                 }
             }
         } else {

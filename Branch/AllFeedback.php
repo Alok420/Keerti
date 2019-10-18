@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -8,7 +9,7 @@ and open the template in the editor.
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';

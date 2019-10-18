@@ -1,9 +1,10 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
 
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -11,6 +12,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
             function approval(branchapproval, id, table) {
+                $("h1").append("<img src='../images/loading.gif' height='50' width='60'>")
                 $.post("../controller/approval.php",
                         {
                             id: "" + id,
@@ -20,6 +22,7 @@
                         function (data, status) {
                             if (status == "success") {
                                 document.location.reload();
+//                                alert();
                             }
                         });
             }
@@ -87,7 +90,7 @@
                 font-weight: bold; 
                 font-size: 20px; 
                 letter-spacing: 1px; 
-                text-transform: uppercase;
+                text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -156,15 +159,7 @@
                         <a href="<?php echo $_SERVER['PHP_SELF']; ?>?active=0">Not active employers</a>
                         <a href="<?php echo $_SERVER['PHP_SELF']; ?>">All</a>
                     </div>
-                    <div class="row row-title">
-                        <div class="col-sm-3">
-                            <h4 >Employer</h4>
-                        </div>
 
-                        <div class="col-sm-3">
-                            <h4>Approval</h4>
-                        </div>
-                    </div>
 
 
                     <?php
@@ -177,6 +172,17 @@
                         $sql = "select e.*,lc.id as lcid from employers e,login_credentials lc where e.id =lc.employers_id and lc.status=" . $_GET['active'];
                     }
                     $data = $conn->query($sql);
+                    ?>
+                    <div class="row row-title">
+                        <div class="col-sm-3">
+                            <h4> <?php echo $data->num_rows; ?> Employers</h4>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <h4>Approval</h4>
+                        </div>
+                    </div>
+                    <?php
                     while ($one = $data->fetch_assoc()) {
                         $data2 = $db->select("login_credentials", "*", array("employers_id" => $one["id"]));
                         if (isset($_GET["status"])) {

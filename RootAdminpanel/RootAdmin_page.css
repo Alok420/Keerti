@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+*{
+    font-family: 'Raleway', sans-serif;
+}
 nav{
-    background-color:rgba(1,1,1,.8) ;
-    height: 80px;
+    box-shadow: 1px 1px 10px #428bca!important;
+    border-radius: 0px;
+    height: 90px; 
 }
 .navbar-header a{
     text-decoration: none;
-    color: #95afc0;
+    color: #428bca!important;
     font-size: 28px;
     text-align: center;
     margin-top: 10px;
@@ -12,14 +17,15 @@ nav{
     /*font-weight: bold;*/
 }
 .navbar-nav a{
-    color: yellowgreen;
+    margin-top: 38px!important;
+    color: #428bca!important;
     font-size: 18px;
     margin-top: 10px;
     letter-spacing: 1px;
 
 }
 .navbar-nav .dropdown a{
-    color:yellowgreen;
+    color:#428bca!important
 }
 .navbar-nav a:active{
     background: transparent;
@@ -345,7 +351,8 @@ ul span{
 }
 
 .sidebarcontainer{
-    background-color: #006b96; min-height: 100vh;
+    background-color: #08507F; 
+    min-height: 100vh;
 }
 .sidebarcontainer .panel-heading,.sidebarcontainer .panel-default{
     background-color: transparent!important;

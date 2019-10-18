@@ -22,8 +22,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="../Index.php"><img src="../images/keertiwhite.png" width="150" height="45"> </a> 
-            <a class="navbar-brand" style="font-weight: bold; font-size: 35px; box-sizing: border-box; padding-top: 25px;">Root Admin panel</a>
+            <a class="navbar-brand" href="../Index.php"><img src="../images/keertiwhite.png" width="100" height="50" style="transform: scale(1.2);"> </a> 
+            <a class="navbar-brand" style="font-weight: bold; font-size: 35px; box-sizing: border-box; padding-top: 40px;">Administrator panel</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -49,7 +49,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #00bff3;"></span> &nbsp; <?php echo " " . $one["fname"] . " " . $one["lname"]; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="../student/index.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Student's Dashboard</a></li>
+                                    <li><a href="../student/index.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Candidate's Dashboard</a></li>
                                     <li><a href="../controller/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                                 </ul>
                             </li>    
@@ -89,7 +89,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #00bff3;"></span> <?php echo $one["name"]; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="../RootAdminpanel/RootAdmin_page.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Root Admin's Dashboard</a></li>
+                                    <li><a href="../RootAdminpanel/RootAdmin_page.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Administrator Dashboard</a></li>
                                     <li><a href="../controller/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
 
                                 </ul>

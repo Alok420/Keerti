@@ -1,8 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>	
         <?php
-        session_start();
 //        $loggedintype = "";
 //        include './UserLoginCheck.php';
         include './Common/CDN.php';
@@ -10,7 +10,6 @@
         include './Config/ConnectionObjectOriented.php';
         include './Config/DB.php';
         $db = new DB($conn);
-
         $where = array("id" => $_GET["id"]);
         $data = $db->select("jobpost", "*", $where);
         $jobpost = $data->fetch_assoc();
@@ -56,6 +55,22 @@
                     window.location.href = "Login_User.php";
                 });
             }
+
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+
         </script>
         <style type="text/css">
 <?php include './css/Footer.css'; ?>
@@ -73,7 +88,7 @@
                 font-size: 20px;
                 font-weight: 600;
                 color: #293241;
-                text-transform: uppercase;
+                text-transform: capitalize;
                 border: none;
                 border-radius: 0;
                 background: transparent;
@@ -132,7 +147,13 @@
                 }
                 .tab .tab-content{ margin-top: 0; }
             }
-         
+            .panel-heading{
+                background: linear-gradient(45deg,rgba(234,21,129,.6),#428bca 100%) !important;
+                padding: 10px;
+                border-radius: 5px !important;
+                color: white!important;
+            }
+            
         </style>
     </head>
     <body>
@@ -163,26 +184,25 @@
 
             <div class="row">
 
-                <div class="col-md-12">
+                <div class="col-sm-12">
 
 
                     <div class="jobprofile">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-sm-4" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                 <div class="employerimage">
-                                    <img src="images/CompanyProfile/<?php echo $employers["company_logo"]; ?>" width="300px;">
+                                    <img class="img-responsive" src="images/CompanyProfile/<?php echo $employers["company_logo"]; ?>"  width="300px;">
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
+                            <div class="col-sm-4" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                 <div class="titledis">
-                                    <p id="jobtitle"><?php echo $jobpost["job_title"]; ?> - <?php echo $employers["Address_office"]; ?> </p>
-                                    <p id="name">Company / Organization: <?php echo $employers["Organization_Name"]; ?> </p>
-                                    <p id="name">Company type: <?php echo $employers["Type_of_organization"]; ?> </p>
-                                    <p id="name">Contact person: <?php echo $employers["contact_person"]; ?> </p>
-                                    <P id="emailaddress"><i class="fas fa-envelope"></i> Email Address: <?php echo $employers["Email_ID"]; ?></P>
-                                    <p id="Telephone"> <i class="fas fa-phone"></i> Telephone: <?php echo $employers["Contact_number"]; ?>, <?php echo $employers["Alternate_contact_number1"]; ?>, <?php echo $employers["Alternate_contact_number2"]; ?></p>
-                                    <p id="joblocation"> <i class="fas fa-map-marker-alt"></i> Address: <?php echo $employers["Address_office"]; ?></p>
+                                    <p id="jobtitle"><strong>Job : </strong><?php echo $jobpost["job_title"]; ?> </p>
+                                    <p id="name"><strong>Company / Organization:</strong> <?php echo $employers["Organization_Name"]; ?> </p>
+                                    <p id="name"><strong>Company type:</strong> <?php echo $employers["Type_of_organization"]; ?> </p>
+                                    <p id="name"><strong>Contact person:</strong> <?php echo $employers["contact_person"]; ?> </p>
+                                    <P id="emailaddress"><i class="fas fa-envelope"></i><strong> Email Address:</strong> <?php echo $employers["Email_ID"]; ?></P>
+                                    <p id="Telephone"> <i class="fas fa-phone"></i> <strong>Telephone:</strong> <?php echo $employers["Contact_number"]; ?>, <?php echo $employers["Alternate_contact_number1"]; ?>, <?php echo $employers["Alternate_contact_number2"]; ?></p>
+                                    <p id="joblocation"> <i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> <?php echo $employers["Address_office"]; ?></p>
 
 
                                     <?php if ($db->loginCheck("candidate")) {
@@ -199,93 +219,83 @@
                             </div>
 
 
-                            <div class="col-md-4">
-
+                            <div class="col-sm-4" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                 <div class="jobpostedby">
-
                                     <div id="jobposted">
-                                        <p>Job Posted by</p>
+                                        <p>Job posted by</p>
                                     </div> 
-                                    <img src="images/avatar-male.png" >
-
-                                    <p id="postname">Name : <?php echo $jobpost["postedby"]; ?></p>
-
-
-
+                                    <img src="images/avatar-male.png" class="img-responsive" >
+                                    <p id="postname"><?php echo strtoupper($jobpost["postedby"]); ?></p>
                                 </div>
-
-
                             </div>
-
-
-
-
                         </div>
 
                     </div>
 
                 </div>
-
-
             </div>
 
-            <div class="row">
-                <div class="col-md-12">
-
-                    <div class="bar ">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p id="rupee"><i class="fas fa-rupee-sign"></i> <?php echo $jobpost["Package_Ranged_Offered"]."Lac Annual"; ?></p>
-                            </div>
-
-                            <div class="col-md-3">
-                                <p><i class="far fa-clock"></i> Posted on: <?php echo $jobpost["job_posted_on"]; ?></p>
-                            </div>
-                            <div class="col-md-3">
-                                <p><i class="far fa-eye"></i> Job Vacancy :<?php echo $jobpost["no_of_posting_vacancy"]; ?></p>
-                            </div>
-
-                            <div class="col-md-3">
-                                <p><i class="far fa-address-card"></i> Valid till: <?php echo $jobpost["vacancy_valid_till"]; ?></p>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
+            <div class="row bar" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="col-sm-3">
+                    <p id="rupee"><i class="fas fa-rupee-sign"></i><?php echo $jobpost["Package_Ranged_Offered"] . " Lac Annual"; ?></p>
+                </div>
+                <div class="col-sm-3">
+                    <p><i class="far fa-clock"></i> Posted on: <?php echo $jobpost["job_posted_on"]; ?></p>
+                </div>
+                <div class="col-sm-3">
+                    <p><i class="far fa-eye"></i> Job Vacancy :<?php echo $jobpost["no_of_posting_vacancy"]; ?></p>
+                </div>
+                <div class="col-sm-3">
+                    <p><i class="far fa-address-card"></i> Valid till: <?php echo $jobpost["vacancy_valid_till"]; ?></p>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tab" role="tabpanel">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Job Description</a></li>
-                                <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Key skills</a></li>
-                                <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab">Desired Candidate Profile</a></li>
-                            </ul>
-                            <div class="tab-content tabs">
-                                <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                                    <div class="content">
-                                        <?php echo $jobpost["jobdescription"]; ?>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="Section2">
-                                    <div class="category">
-                                        <?php echo $jobpost["desired_skill_set"]; ?>
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane fade" id="Section3">
-                                    <?php echo $jobpost["desired_skill_set"]; ?>
-                                </div>
-                            </div>
+
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                Job Description
+                                <i class="fa fa-angle-down" style="float: right;"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <?php echo $jobpost["jobdescription"]; ?>
                         </div>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                Key skills
+                                <i class="fa fa-angle-down" style="float: right;"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body"> <?php echo $jobpost["desired_skill_set"]; ?></div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                Desired Candidate Profile
+                                <i class="fa fa-angle-down" style="float: right;"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body"><?php echo $jobpost["desired_skill_set"]; ?></div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
         <?php include './Common/Footer.php'; ?>

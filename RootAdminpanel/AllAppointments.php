@@ -1,4 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
+
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -7,7 +10,7 @@ and open the template in the editor.
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -163,7 +166,7 @@ and open the template in the editor.
             font-weight: bold; 
             font-size: 15px!important; 
             letter-spacing: 1px; 
-            text-transform: uppercase;
+            text-transform: capitalize;
             }
             .btn{
                 width:100%;

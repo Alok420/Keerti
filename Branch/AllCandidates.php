@@ -1,8 +1,9 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -10,6 +11,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
             function approval(branchapproval, id, table) {
+                $("h1").append("<img src='../images/loading.gif' height='50' width='70'>")
                 $.post("../controller/approval.php",
                         {
                             id: "" + id,
@@ -75,7 +77,7 @@
                 font-weight: bold; 
                 font-size: 20px; 
                 letter-spacing: 1px; 
-                text-transform: uppercase;
+                text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -136,9 +138,13 @@
                 </div>
                 <div class="col-sm-9 maincolumn">
                     <h1 style="text-align: center; margin: 0px; text-shadow: 2px 2px lightgray;">All Candidates</h1>
+                  
+                    <?php
+                    $data = $db->select("candidates", "*", array("branches_id" => $_SESSION["loggedinid"]));
+                    ?>
                     <div class="row row-title">
                         <div class="col-sm-3">
-                            <h4 >Employer</h4>
+                            <h4><?php echo $data->num_rows; ?> Candidates</h4>
                         </div>
 
                         <div class="col-sm-3">
@@ -146,7 +152,6 @@
                         </div>
                     </div>
                     <?php
-                    $data = $db->select("candidates", "*", array("branches_id" => $_SESSION["loggedinid"]));
                     while ($one = $data->fetch_assoc()) {
                         $data2 = $db->select("login_credentials", "*", array("candidates_id" => $one["id"]));
                         $lc = $data2->fetch_assoc();
@@ -154,13 +159,13 @@
                         <div class="row listbox">
                             <div class="col-sm-3">
                                 <div class="row">
-                                    <a href="../resume.php?id=<?php echo $one["id"]; ?>"><img src="../images/profile/<?php echo $one["dp"]; ?>" height="150" width="150" class="img-responsive img-thumbnail"></a>
+                                    <a href="../resume.php?candidate=<?php echo $one["id"]; ?>"><img src="../images/profile/<?php echo $one["dp"]; ?>" height="150" width="150" class="img-responsive img-thumbnail"></a>
                                 </div>
                                 <div class="row">
                                     <strong><?php
-                                        echo $one["id"] . ":";
-                                        echo $one["fname"] . " " . $one["lname"];
-                                        ?></strong>
+                    echo $one["id"] . ":";
+                    echo $one["fname"] . " " . $one["lname"];
+                        ?></strong>
                                     <BR> Registration date on : <?php echo $lc["creation_date"]; ?>
                                 </div>
                             </div>
@@ -170,13 +175,16 @@
                                 <strong>Status:-</strong> <?php echo $lc["status"] == 0 ? " Not Active" : "Active"; ?>
                                 <br><br>
                                 <?php
-                                echo $lc["bapproval"] == 0 ? "<button id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $lc['id'] . "\",\"login_credentials\")'>Your Approvel pending</button>" : "<button id='approved' onclick='approval(\"0\",\"" . $lc['id'] . "\",\"login_credentials\")' class='btn btn-default'>Branch Approved</button>";
+                                echo $lc["bapproval"] == 0 ? "<button id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $lc['id'] . "\",\"login_credentials\")'>Approve</button>" : "<button id='approved' onclick='approval(\"0\",\"" . $lc['id'] . "\",\"login_credentials\")' class='btn btn-default'>Approved</button>";
                                 ?>
-                                <br><br>
-                                <?php
-                                echo $lc["mbapproval"] == 0 ? "<button id='approve' disabled class='btn btn-success' onclick='approval(\"1\",\"" . $lc['id'] . "\",\"login_credentials\")'>Main Branch Approvel</button>" : "<button id='approved' onclick='approval(\"0\",\"" . $lc['id'] . "\",\"login_credentials\")' disabled class='btn btn-default'>Main Branch Approved</button>";
-                                ?>
-
+                                <div>
+                                    <br>
+                                    <a href="../controller/update.php?id=<?php echo $one["id"]; ?>&tbname=candidates&resume_approval=<?php echo $one["resume_approval"] == 0 ? 1 : 0; ?>"><button type="button" class="btn btn-default"><?php echo $one["resume_approval"] == 0 ? "Resume not approved" : "Resume approved"; ?></button></a>                                
+                                </div>
+                                <div>
+                                    <br>
+                                    <a href="../resume.php?candidate=<?php echo $one["id"]; ?>"><button type="button" class="btn btn-default">Check profile</button></a>
+                                </div>
                             </div>
 
                         </div>

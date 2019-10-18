@@ -1,9 +1,9 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
-
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -76,7 +76,7 @@
                 font-weight: bold; 
                 font-size: 20px; 
                 letter-spacing: 1px; 
-                text-transform: uppercase;
+                text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -135,65 +135,13 @@
                 <div class="col-sm-3 sidebarcolumn">
                     <?php include './BranchAdmin_page_sidebar.php'; ?>
                 </div>
-                <div class="col-sm-9 maincolumn">
-                    <h1 style="text-align: center; margin: 0px; text-shadow: 2px 2px lightgray;">All employers</h1>
-                    <div class="filter">
-                        <h5 style="font-size: 20px; font-weight: bold; color: #009999; letter-spacing: 1px;">Filter: </h5>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=1">Approved only</a>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=0">Not approved</a>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?active=1">Active employers</a>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?active=0">Not active employers</a>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>">All</a>
-                    </div>
-                    <div class="row row-title">
-                        <div class="col-sm-3">
-                            <h4 >Employer</h4>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <h4>Approval</h4>
-                        </div>
-                    </div>
-
-
-                    <?php
-                    $data = $db->select("employers");
-                    while ($one = $data->fetch_assoc()) {
-                        $data = $db->select("login_credentials", "*", array("employers_id" => $one["id"]));
-                        $lc = $data->fetch_assoc();
-                        ?>
-                        <div class="row listbox">
-                            <div class="col-sm-3">
-                                <div class="row">
-                                    <a href="../Companyprofile.php?id=<?php echo $one["id"]; ?>"><img src="../images/CompanyProfile/<?php echo $one["company_logo"]; ?>" height="150" width="150" class="img-responsive img-thumbnail"></a>
-                                </div>
-                                <div class="row column-text">
-                                    <strong><?php
-                                        echo $one["id"] . " : ";
-                                        echo $one["Organization_Name"] . " " . $one["Type_of_organization"];
-                                        ?></strong>
-                                    <BR> Incorporation date ON <?php echo $one["Date_of_incorporation"]; ?>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-
-                                <strong>Status:-</strong> <?php echo $lc["status"] == 0 ? " Not Active" : " Active"; ?>
-                                <br><br>
-                                <?php
-//                                echo $lc["bapproval"] == 0 ? "<button id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $lc['id'] . "\",\"login_credentials\")'>Your Approvel pending</button>" : "<button id='approved' onclick='approval(\"0\",\"" . $lc['id'] . "\",\"login_credentials\")' class='btn btn-default'>Branch Approved</button>";
-                                ?>
-                                <br><br>
-                                <?php
-                                echo $lc["mbapproval"] == 0 ? "<button id='approve' disabled class='btn btn-success' onclick='approval(\"1\",\"" . $lc['id'] . "\",\"login_credentials\")'>Main Branch Approvel</button>" : "<button id='approved' onclick='approval(\"0\",\"" . $lc['id'] . "\",\"login_credentials\")' disabled class='btn btn-default'>Main Branch Approved</button>";
-                                ?>
-
-                            </div>
-
-                        </div>
+                <div class="col-sm-9">
+                    <h1>All employers</h1>
+                    <div style="overflow-x: scroll;">
                         <?php
-                    }
-                    ?>
+                        $db->showInTable("employers", "*", array(), "no", $externallinks = "../Companyprofile.php?", array(), $sort);
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

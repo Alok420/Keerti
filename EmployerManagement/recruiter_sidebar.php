@@ -36,7 +36,7 @@
                 </h4>
             </div>
             <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body"><a href="jobposting.php">Job Posting</a></div>
+                <div class="panel-body"><a href="jobposting.php">Post a job</a></div>
                 <div class="panel-body"><a href="AllJobs.php">Posted Job</a></div>
 
             </div>
@@ -63,8 +63,8 @@
                 </h4>
             </div>
             <div id="collapse3" class="panel-collapse collapse">
-                <div class="panel-body"><a href="Job_Request_by_candidates.php">Job Request by candidates</a></div>
-                <div class="panel-body"><a href="Job_Request_by_recruiters.php">Job Request by Recruiters</a></div>
+                <div class="panel-body"><a href="Job_Request_by_candidates.php">Candidate applications</a></div>
+                <div class="panel-body"><a href="Job_Request_by_recruiters.php">My sort listed candidates</a></div>
                 <div class="panel-body"><a href="chatpage.php">Chat</a></div>
 
             </div>

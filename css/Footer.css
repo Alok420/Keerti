@@ -294,7 +294,7 @@ address a:hover {
     font-family: 'Open Sans Condensed', sans-serif;
     border-radius: 0;
     border: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #111;
     font-size: 26px;
     padding: 12px 30px;
@@ -395,7 +395,7 @@ address a:hover {
     font-family: 'Open Sans Condensed', sans-serif;
     color: #000;
     font-size: 115px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 @media (max-width:479px) {
@@ -450,7 +450,7 @@ address a:hover {
     font-family: 'Bebas Neue';
     font-size: 150px;
     font-weight: 400;
-    text-transform: uppercase;
+    text-transform: capitalize;
     line-height: .85
 }
 
@@ -490,7 +490,7 @@ address a:hover {
     font-weight: 400;
     font-weight: bold;
     font-size: 150px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     display: block;
     line-height: .7
 }

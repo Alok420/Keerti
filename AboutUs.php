@@ -1,8 +1,8 @@
+<?php session_start();?>	
 <!DOCTYPE html>
 <html>
     <head>
         <?php
-        session_start();
         include './Common/CDN.php';
         include './Common/colors.php';
         include './Config/ConnectionObjectOriented.php';

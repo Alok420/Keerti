@@ -1,7 +1,7 @@
 <footer class="ct-footer">
                 <div class="container">
                     <form method="post" action="controller/JoinNowController.php">
-                        <div class="ct-footer-pre text-center-lg">
+                        <div class="ct-footer-pre text-center-lg" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                             <div class="inner">
                                 <span>Join KeertiJob Portal to receive updates &amp; events!</span>
                             </div>
@@ -14,7 +14,7 @@
                             </div>
                         </div>
                     </form>
-                    <ul class="ct-footer-list text-center-sm">
+                    <ul class="ct-footer-list text-center-sm" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                         <li>
                             <h2 class="ct-footer-list-header">
                                 Information
@@ -67,16 +67,16 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="ct-footer-meta text-center-sm">
+                    <div class="ct-footer-meta text-center-sm" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                         <div class="row">
                             <div class="col-sm-6 col-md-2">
                                 <img alt="logo" src="images/keertiwhite.png">
                             </div>
                             <div class="col-sm-6 col-md-3">
                                 <address>
-                                    <span>KeertiJobPortal<br></span><br>
+                                    <span>Keerti JobPortal<br></span><br>
                                     <br>
-                                    <span>Phone: <a href="Contact:85858585">- 02226550480/2016</a></span>
+                                    <span>Phone:- 02226550480/2016</span>
                                 </address>
                             </div>
                             <div class="col-sm-6 col-md-2 ct-u-paddingTop10">
@@ -109,22 +109,25 @@
                         <div class="inner-left">
                             <ul>
                                 <li>
-                                    <a href="#">FAQ</a>
+                                    <a href="faq.php">FAQ</a>
                                 </li>
                                 <li>
-                                    <a href="#">News</a>
+                                    <a href="news.php">News</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact Us</a>
+                                    <a href="contact.php">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="inner-right">
                             <p>
-                                Copyright © 2016 Keerti Computers.&nbsp;<a href="#">Privacy Policy</a>
-                            </p>
-                          
+                                Copyright © 2016 Keerti Computers.&nbsp;<a href="privacypolicy">Privacy Policy</a>
+                            </p>                          
                         </div>
                     </div>
                 </div>
             </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+                                                AOS.init();
+        </script>

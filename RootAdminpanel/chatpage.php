@@ -1,7 +1,10 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
+
 <html>
     <?php
-    include './LoginCheck.php';
+    
     include '../Common/CDN.php';
     include '../Config/ConnectionObjectOriented.php';
     include '../Config/DB.php';
@@ -82,7 +85,7 @@
 
 
                             } else if (tbname == "employers") {
-                                $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/CompanyProfile/" + obj[key]["company_logo"] + "' height='30' width='30'> " + obj[key]["Organization_Name"] + " (<small id='rtype'>employer</small>)</li>");
+                                $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/CompanyProfile/" + obj[key]["company_logo"] + "' height='30' width='30'> " + obj[key]["Organization_Name"] + " (<small id='rtype'>Recruiter</small>)</li>");
 
                             } else if (tbname == "candidates") {
                                 $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/profile/" + obj[key]["dp"] + "' height='30' width='30'>" + obj[key]["fname"] + " " + obj[key]["lname"] + " (<small id='rtype'>candidate</small>)</li>");
@@ -126,7 +129,7 @@
                 <select class="select">
                     <option value="mainbranch">Root</option>
                     <option value="branches">Branch</option>
-                    <option value="employers">Employer</option>
+                    <option value="employers">Recruiter</option>
                     <option value="candidates">Employee</option>
                 </select>
                 <div class="list">
@@ -160,7 +163,7 @@
                                     echo "<small id='sid'>" . $one['id'] . "</small> ";
                                     echo "<img src='" . $one["company_logo"] . "' height='50' width='50' style='border-radius:100%;'>";
                                     echo "<span id='sname'>" . $one["Organization_Name"] . "</span>";
-                                    echo " (<small id='stype'>employer</small>)";
+                                    echo " (<small id='stype'>Recruiter</small>)";
                                 } else if ($_SESSION["loggedintype"] == "candidate") {
                                     $data = $db->select("candidates", "*", array("id" => $id));
                                     $one = $data->fetch_assoc();

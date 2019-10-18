@@ -47,10 +47,10 @@
                 </h4>
             </div>
             <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body"><a href="jobposting.php">Job Posting</a></div>
+                <div class="panel-body"><a href="jobposting.php">Post a job</a></div>
                 <div class="panel-body"><a href="AllJobs.php">Posted Job</a></div>
-                <div class="panel-body"><a href="Job_Request_by_candidates.php">Job Request by candidates</a></div>
-                <div class="panel-body"><a href="Job_Request_by_recruiters.php">Job Request by Recruiters</a></div>
+                <div class="panel-body"><a href="Job_Request_by_candidates.php">Candidate applications</a></div>
+                <div class="panel-body"><a href="Job_Request_by_recruiters.php">My sort listed candidates</a></div>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#employer">Employers <span class="caret"></span></a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#employer">Recruiters <span class="caret"></span></a>
                 </h4>
             </div>
             <div id="employer" class="panel-collapse collapse">
@@ -84,7 +84,7 @@
                 </h4>
             </div>
             <div id="collapse3" class="panel-collapse collapse">
-                <div class="panel-body"><a href="Chat.php">Chat</a></div>
+                <div class="panel-body"><a href="chatpage.php">Chat</a></div>
             </div>
         </div>
 

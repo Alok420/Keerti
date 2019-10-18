@@ -1,9 +1,10 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+      
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -75,7 +76,7 @@
                 font-weight: bold; 
                 font-size: 20px; 
                 letter-spacing: 1px; 
-                text-transform: uppercase;
+                text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -100,13 +101,13 @@
                     <?php include './recruiter_sidebar.php  '; ?>
                 </div>
                 <div class="col-sm-9 maincolumn">
-                    <h1 style="text-align: center; margin: 0px; font-size: 35px; font-weight: bold; padding: 15px; text-shadow: 2px 2px lightgray; text-transform: capitalize; letter-spacing: 2px;">Job requested by recruiters</h1>
+                    <h1 style="text-align: center; margin: 0px; font-size: 35px; font-weight: bold; padding: 15px; text-shadow: 2px 2px lightgray; text-transform: capitalize; letter-spacing: 2px;">Job offered by recruiter</h1>
                     <div class="row row-title" >
                         <div class="col-sm-3">
-                            <h4 >Student</h4>
+                            <h4 >Company</h4>
                         </div>
                         <div class="col-sm-3">
-                            <h4>Company</h4>
+                            <h4>Candidate</h4>
                         </div>
                         <div class="col-sm-3">
                             <h4>Job</h4>
@@ -115,10 +116,10 @@
                             <h4>Approval</h4>
                         </div>
                     </div>                   
-                    
-                        <?php
-                    $where = array("requestedBy" => "employers","employers_id"=>$_SESSION["loggedinid"]);
-                    $data = $db->select("hiring", "*", $where);
+
+                    <?php
+                    $sql = "select * from hiring where requestedBy='employers' and employers_id=" . $_SESSION["loggedinid"];
+                    $data = $conn->query($sql);
                     while ($one = $data->fetch_assoc()) {
                         ?>
                         <div class="row listbox">
@@ -133,7 +134,7 @@
                                     <!--<span style="font-size:2em; transform:scaleX(3);">&zigrarr;</span>-->
                                 </div>
                                 <div class="row column-text">
-                                    <strong><?php echo $emp["Organization_Name"] . " " . $emp["Type_of_organization"]; ?> has requested to </strong>
+                                    <strong><?php echo $emp["Organization_Name"] . " " . $emp["Type_of_organization"]; ?> has offerred to </strong>
                                     <BR> ON <?php echo $one["date_"]; ?>
                                 </div>
                             </div>
@@ -167,7 +168,7 @@
                                 ?>
                                 <br><br>
                                 <?php
-                                echo $one["employerapproval"] == 0 ? "<button id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $one['id'] . "\",\"hiring\")'>Employer Approvel</button>" : "<button id='approved' class='btn btn-default' onclick='approval(\"0\",\"" . $one['id'] . "\",\"hiring\")'>Employer Approved</button>";
+                                echo $one["employerapproval"] == 0 ? "<button id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $one['id'] . "\",\"hiring\")'>Recruiter Approvel</button>" : "<button id='approved' class='btn btn-default' onclick='approval(\"0\",\"" . $one['id'] . "\",\"hiring\")'>Recruiter Approved</button>";
                                 ?>
 
                             </div>

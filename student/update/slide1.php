@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<?php session_start();?>
 <?php include '../LoginCheck.php'; ?>
+<!DOCTYPE html>
 <?php include '../../Config/ConnectionObjectOriented.php'; ?>
 <?php
 include '../../Config/DB.php';
@@ -37,7 +38,7 @@ $db = new DB($conn);
                                 <div class="form-group">
                                     <label class="control-label col-sm-5" for="basicqualification">Basic Qualification:</label>
                                     <div class="col-sm-7">
-                                        <input type="text" value="<?php echo $one["basic_qualification"]; ?>" class="form-control" id="basicqualification" placeholder="Enter Basic Qualification" name="basic_qualification">
+                                        <input type="text" class="form-control" id="basicqualification" value="<?php echo $one["basic_qualification"];?>" placeholder="Enter Basic Qualification" name="basic_qualification">    
                                     </div>
                                 </div>
                                 <div class="form-group">

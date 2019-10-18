@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a  href="Index.php"><img src="images/keertiwhite.png" width="150" height="40" alt="<?php echo "$websitename"; ?>"></a>
+            <a  href="Index.php"><img src="images/keertiwhite.png" width="100" height="60" alt="<?php echo "$websitename"; ?>"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +22,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register As <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="SignupForm_Employee.php"> Employee</a></li>
+                        <li><a href="SignupForm_Employee.php"> Candidate</a></li>
                         <li><a href="EmployerRegistration.php"> Recruiter</a></li>
                     </ul>
                 </li>
@@ -41,7 +41,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #00bff3;"></span> &nbsp; <?php echo " " . $one["fname"] . " " . $one["lname"]; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="student/StudentPage.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Student's Dashboard</a></li>
+                                    <li><a href="student/StudentPage.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Candidate's Dashboard</a></li>
                                     <li><a href="controller/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
                                 </ul>
                             </li>    
@@ -86,7 +86,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #00bff3;"></span> <?php echo $one["name"]; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="RootAdminpanel/RootAdmin_page.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Root Admin's Dashboard</a></li>
+                                    <li><a href="RootAdminpanel/RootAdmin_page.php"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Administrator's Dashboard</a></li>
                                     <li><a href="controller/logout.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
 
                                 </ul>
@@ -106,11 +106,10 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<script type="text/javascript">
-            jQuery("body").prepend('<div class="loader"></div>');
-
+<!--<script type="text/javascript">
+    jQuery("body").prepend('<div class="loader"></div>');
     jQuery(document).ready(function () {
         jQuery(".loader").remove();
 
     });
-</script>
+</script>-->

@@ -1,8 +1,9 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
     <head>
         <?php
-        session_start();
+        
         include 'Config/ConnectionObjectOriented.php';
         include 'Config/DB.php';
         include './Common/CDN.php';
@@ -29,7 +30,6 @@
                         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                             <form method="get" action="searchdata.php">
                                 <div class="input-group buscador-principal">    					
-
                                     <input  name="" id="search_param" type="hidden">         
                                     <input class="form-control" name="search_param" placeholder="Search Your Job?" type="text">
                                     <div class="input-group-btn search-panel">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                .</div>
+               </div>
         </div>
 
         <div class="col-md-4">

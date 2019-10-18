@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -14,7 +15,7 @@ and open the template in the editor.
         $db = new DB($conn);
         ?>   
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
+
         <style>
 <?php include './Student_page.css'; ?>
             .allbranchContainer{
@@ -64,7 +65,8 @@ and open the template in the editor.
                     <?php include './Student_page_sidebar.php'; ?>
                 </div>
                 <div class="col-sm-9 maincolumn">
-                    <div class="row">
+                    <h1>Update profile page</h1>
+                    <div style="overflow-x: scroll;">
                         <?php
                         $id = $_SESSION["loggedinid"];
                         $where = array("id" => $id);

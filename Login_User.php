@@ -1,9 +1,9 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
     <head>
-
         <?php
-        session_start();
+     
         include './Common/CDN.php';
         include './Common/colors.php';
         include './Config/ConnectionObjectOriented.php';
@@ -33,12 +33,12 @@
                     <h1>Not yet registered?</h1>
                     <a href="SignupForm_Employee.php">
                         <div class="registrationlink">
-                            Register as employee &zigrarr;
+                            Register as candidate 
                         </div>
                     </a>
-                    <a href="SignupForm_Employee.php">
+                    <a href="EmployerRegistration.php">
                         <div class="registrationlink">
-                            Register as Recruiter &zigrarr;
+                            Register as Recruiter 
                         </div>
                     </a>
                 </div>

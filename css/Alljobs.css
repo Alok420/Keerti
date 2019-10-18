@@ -1,83 +1,92 @@
 #btn1{
-	width: 180px;
+    width: 180px;
 }
 
-#nav1{
-	dei
-}
-
-div.vertical-line{
-     
-    }
-
-
-
-    .employeeprofilecard{
-    	
-    	background: <?php  echo $Topnavbar; ?>
-      
-    }
-    
-.employeeprofilecard {
+.employeeprofilecard{
     font-size: 18px;
     padding: 20px;
-    /*margin: 10px;*/
-    width: 700px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(2,2,2,2.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    width: 100%;
+    /*box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(2,2,2,2.24);*/
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 .employeeprofilecard:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 1px 2px 30px 0px rgba(25,25,25,0.2),-1px -2px 30px 0px rgba(25,25,25,0.2);
+
+}
+.employe img{
+    width: 150px;
+    height: 130px;
+}
+#jobtitle{
+    font-size: 15px;
 }
 
+#Jobdesc{
 
-    .employe img{
+    font-size: 15px;
+}
 
-    	width: 180px;
-    	height: 190px;
+#joblocation{
+    font-size: 15px;
+    color: gray;
+}
+.btn3 button{
+    display: inline-block;
+    height: 40px;
+    width: 150px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.2em;
+    color: white;
+    background-color: #428bca;
+    cursor: pointer;
+    outline: none;
+}
 
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.allcatcol{
+    border:thin solid #428bca;
+    min-height: 100vh;
+    margin: 2px;
+    border-radius: 30px 30px 5px 5px;
+    text-align: center;
+}
+.allcatcol h3{
+
+    background-color: #428bca;
+    padding: 5px;
+    border-radius: 100px;
+    margin: 0px;
+    /*margin-top:5px;*/
+    color: white;
+}
+.allcatlist{
+    border-bottom: thin solid grey;
+    display: block!important;
+    padding: 5px;
+
+}
+.allcatlist:hover{
+    border-bottom:thin solid #428bca;
+    color: #428bca;
+}
+@media only screen and (max-width: 768px) {
+    .allcatcol{
+        min-height: 100%;
+        margin-top: 30px;
     }
-
-    #jobtitle{
-    	
-    	font-size: 15px;
-
+    .allcatcol{
+        display: none;
     }
-
-    #Jobdesc{
-    		
-   font-size: 15px;
-    }
-
-    #joblocation{
-
-    	font-size: 15px;
-    	color: gray;
-    }
-
-    .btn3 button{
-    	
-  display: inline-block;
-  height: 40px;
-  width: 150px;
-  box-sizing: border-box;
-  border: transparent;
-  border-radius: 60px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: white;
-  background-color: #428bca;
-  cursor: pointer;
-  outline: none;
-    }
-
-    .flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
 }

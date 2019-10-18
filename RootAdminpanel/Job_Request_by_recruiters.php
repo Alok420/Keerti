@@ -1,9 +1,10 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+        
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -75,7 +76,7 @@
             font-weight: bold; 
             font-size: 20px; 
             letter-spacing: 1px; 
-            text-transform: uppercase;
+            text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -104,14 +105,14 @@
                     <div class="filter">
                         <h5 style="font-size: 20px; font-weight: bold; color: #BE8D3D; letter-spacing: 1px;">Filter: </h5>
                         <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=recent">Recent</a>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=aba">All branch approved</a>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=aea">All employer approved</a>
+                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=aba"> Branch approved</a>
+                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>?status=aea"> Recruiter approved</a>
                         <a href="<?php echo $_SERVER['PHP_SELF']; ?>">All</a>
                     </div>
 
                     <div class="row row-title" >
                         <div class="col-sm-3">
-                            <h4 >Student</h4>
+                            <h4 >Candidate</h4>
                         </div>
                         <div class="col-sm-3">
                             <h4>Company</h4>
@@ -187,7 +188,7 @@
                                 ?>
                                 <br><br>
                                 <?php
-                                echo $one["employerapproval"] == 0 ? "<button disabled id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $one['id'] . "\",\"hiring\")'>Employer Approvel</button>" : "<button id='approved' disabled class='btn btn-default' onclick='approval(\"0\",\"" . $one['id'] . "\",\"hiring\")'>Employer Approved</button>";
+                                echo $one["employerapproval"] == 0 ? "<button disabled id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $one['id'] . "\",\"hiring\")'>Recruiter Approvel</button>" : "<button id='approved' disabled class='btn btn-default' onclick='approval(\"0\",\"" . $one['id'] . "\",\"hiring\")'>Recruiter Approved</button>";
                                 ?>
 
                             </div>

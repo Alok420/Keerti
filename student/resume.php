@@ -1,3 +1,5 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
 <html>
     <head>

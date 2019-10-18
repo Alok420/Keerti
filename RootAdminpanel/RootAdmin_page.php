@@ -1,7 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -27,16 +27,16 @@ include './LoginCheck.php';
 
                     <form class="form-inline form-inline-root" action="Report.php">
                         <label>Start date</label>
-                        <input type="date" class="form-control form-inline" name="sdate">
+                        <input type="date" class="form-control form-inline datepicker" name="sdate">
                         <label>End date</label>
-                        <input type="date" class="form-control form-inline" name="edate">
+                        <input type="date" class="form-control form-inline datepicker" name="edate">
                         <button class="btn btn-default submitbtn-root" type="submit" style= "color: black; font-weight: bold; box-shadow: 2px 2px lightgray; background-color: #995805">Generate report</button>
                     </form>
 
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="card">
-                                <a href="All_Branches.php"><div class="rootdashboard rootdashboard-new">
+                                <a href="All_Branches.php"><div class="rootdashboard rootdashboard-new">.
                                     <h3><?php
                                         $data = $db->select("branches", "count(id) as allnum");
                                         $one = $data->fetch_assoc();

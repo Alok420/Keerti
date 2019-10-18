@@ -1,7 +1,7 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
-<?php
- include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -12,7 +12,7 @@
         $allbranches = $db->select("branches");
         ?>   
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       
+
         <style>
 <?php include './BranchAdmin_page.css'; ?>
             .allbranchContainer{
@@ -61,9 +61,10 @@
                     <?php include './BranchAdmin_page_sidebar.php'; ?>
                 </div>
                 <div class="col-sm-9 maincolumn">
-                    <div class="row">
+                    <h1>All posted jobs</h1>
+                    <div style="overflow-x: scroll;">
                         <?php
-                        $db->showInTable("jobpost");
+                        $db->showInTable("jobpost", "*", ARRAY(), "no", $externallinks = "", array(), $sort);
                         ?>
                     </div>
                 </div>

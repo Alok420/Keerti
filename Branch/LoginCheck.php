@@ -1,9 +1,8 @@
 <?php
-session_start();
 if (isset($_SESSION["loggedintype"]) && isset($_SESSION["loggedinid"])) {
     if ($_SESSION["loggedintype"] != "branch") {
-        header("location:../Login_User.php");
+        echo '<script>window.location.href="../Login_User.php?";</script>';
     }
 } else {
-    header("location:../Login_User.php");
+    echo '<script>window.location.href="../Login_User.php?";</script>';
 }

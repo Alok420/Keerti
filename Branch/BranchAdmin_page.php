@@ -1,7 +1,6 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
 <html>
     <head>
         <?php
@@ -9,7 +8,19 @@ include './LoginCheck.php';
         include '../Config/DB.php';
         include '../Config/ConnectionObjectOriented.php';
         ?>   
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker({
+                    changeMonth: true,
+                    changeYear: true
+                });
+            });
+        </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <style>
 <?php include './BranchAdmin_page.css'; ?>
             .allbranchContainer{
@@ -36,6 +47,10 @@ include './LoginCheck.php';
                 margin-left: 20px;
                 margin-top:15px!important;
                 padding: 10px;
+                border: thin solid red;
+            }
+            .card *{
+                /*border:thin solid red;*/
             }
             .branchstnumber{
                 text-align: center;
@@ -87,9 +102,9 @@ include './LoginCheck.php';
 
                     <form class="form-inline branch-form" action="Report.php">
                         <label>Start date</label>
-                        <input type="date" class="form-control form-inline" name="sdate">
+                        <input type="text" class="form-control form-inline" name="sdate" id="datepicker">
                         <label>End date</label>
-                        <input type="date" class="form-control form-inline" name="edate">
+                        <input type="date" class="form-control form-inline" name="edate" id="datepicker">
                         <button class="btn btn-default" type="submit" style="background-color: #002433;color: white; font-size: 18px; font-weight: bold; text-transform: capitalize;">Generate report</button>
                     </form>
 
@@ -105,7 +120,7 @@ include './LoginCheck.php';
                                             $one = $data->fetch_assoc();
                                             $num = $one["allnum"];
                                             ?></h3>
-                                        <div class="totalbranch">All registered candidates : <?php echo $num; ?></div>
+                                        <div class="totalbranch">Candidates : <?php echo $num; ?></div>
                                         <div class="rooticon"><i class="fa fa-users"></i></div>
                                         <!--                                    <div class="btn-card-root">
                                                                                 <div class="btn btn-default card-btn-root"></div>
@@ -122,11 +137,8 @@ include './LoginCheck.php';
                                             $num = $one["allnum"];
                                             echo $num;
                                             ?></h3>
-                                        <div class="totalbranch">Total Companies</div>
+                                        <div class="totalbranch">Companies</div>
                                         <div class="rooticon"><i class="fa fa-building-o"></i></span></div>
-                                        <!--                                    <div class="btn-card-root">
-                                                                                <div class="btn btn-default card-btn-root"><a href="Allemployers.php">Read More</a></div>
-                                                                            </div>-->
                                     </div></a>
                             </div>
                         </div>
@@ -142,7 +154,7 @@ include './LoginCheck.php';
                                             echo $num;
                                             ?>
                                         </h3>
-                                        <div class="totalbranch">Total Appointments</div>
+                                        <div class="totalbranch">Appointments</div>
                                         <div class="rooticon">
                                             <span class="glyphicon glyphicon-home"></span>
                                         </div>
@@ -155,19 +167,10 @@ include './LoginCheck.php';
                         <div class="col-sm-6 col-lg-3 col-md-6">
                             <div class="card branchcard" >
                                 <div class="rootdashboard">
-                                    <h3><?php
-                                        $query = "select count(id) as allnum from hiring where candidates_id in(select id from candidates where branches_id=" . $_SESSION['loggedinid'] . ")";
-                                        $data = $conn->query($query);
-                                        $one = $data->fetch_assoc();
-                                        $num = $one["allnum"];
-                                        echo $num;
-                                        ?></h3>
-                                    <div class="totalbranch">Total JOB request</div>
-                                    <div class="rooticon"><span class="glyphicon glyphicon-home"></span></div>
-                                    <div class="btn-card-root" >
-                                        <div class="btn btn-default card-btn-root" style="color:white!important;" ><a href="Job_Request_by_recruiters.php">By companies</a></div><br>
-                                        <div class="btn btn-default card-btn-root" style="color:white!important;"><a href="Job_Request_by_candidates.php">By candidates</a></div>
-                                    </div>
+                                   
+                                    <div class="totalbranch">Job requests</div>
+                                    <a href="Job_Request_by_recruiters.php"><div class="btn btn-default card-btn-root" style="color:white!important;" >By companies</div></a><br>
+                                    <a href="Job_Request_by_candidates.php"><div class="btn btn-default card-btn-root" style="color:white!important;">By candidates</div></a>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +184,7 @@ include './LoginCheck.php';
                                             $num = $one["allnum"];
                                             echo $num;
                                             ?></h3>
-                                        <div class="totalbranch">Total JOB posted</div>
+                                        <div class="totalbranch">Posted job</div>
                                         <div class="rooticon"><span class="glyphicon glyphicon-home"></span></div>
                                         <div class="btn-card-root">
                                             <div class="btn btn-default card-btn-root">Read more</div>

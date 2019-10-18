@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -8,7 +9,7 @@ and open the template in the editor.
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -164,7 +165,7 @@ and open the template in the editor.
             font-weight: bold; 
             font-size: 15px!important; 
             letter-spacing: 1px; 
-            text-transform: uppercase;
+            text-transform: capitalize;
             }
             .btn{
                 width:100%;
@@ -255,9 +256,9 @@ and open the template in the editor.
 
                             <div class="col-sm-3">
                                 <?php
-                                echo $app["candidates_approval"] == 0 ? "<button disabled id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $app["id"] . "\",\"appointment\")'>Not yet Accepted by candidate</button>" : "<button disabled id='approved' onclick='approval(\"0\",\"" . $app['id'] . "\",\"appointment\")' class='btn btn-default'>Accepted by candidate</button>";
+                                echo $app["candidates_approval"] == 0 ? "<button disabled id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $app["id"] . "\",\"appointment\")'>Candidate not accepted</button>" : "<button disabled id='approved' onclick='approval(\"0\",\"" . $app['id'] . "\",\"appointment\")' class='btn btn-default'>Candidate Accepted</button>";
                                 ?>
-                                <div><button class="btn btn-danger" onclick="deletedata('<?php echo $app['id']; ?>', 'appointment')">Delete</button></div>
+                                <div><button class="btn btn-danger"  onclick="deletedata('<?php echo $app['id']; ?>', 'appointment')">Delete</button></div>
 
                             </div>
                             <div class="col-sm-3">

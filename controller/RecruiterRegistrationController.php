@@ -5,17 +5,18 @@ include '../Config/ConnectionObjectOriented.php';
 include '../Config/DB.php';
 $db = new DB($conn);
 $mail = new Mail();
+$_POST["Date_of_incorporation"] = $db->jqToSqlDate($_POST, "Date_of_incorporation");
 
 $info = $db->insert($_POST, "employers");
 $recentinsertedid = $_SESSION["recentinsertedid"];
 date_default_timezone_set("Asia/Calcutta");
 $date = date("Y/m/d");
+
 $loginarray = array("user_name" => $_POST["user_name"], "password" => $_POST["password"], "creation_date" => $date, "status" => "1", "employers_id" => $recentinsertedid, "bapproval" => "1", "mbapproval" => "0");
-$info1 = $db->fileUploadWithTable($_FILES, "employers", $recentinsertedid, "../images/CompanyProfile");
+$info1 = $db->fileUploadWithTable($_FILES, "employers", $recentinsertedid, "../images/CompanyProfile", "11m", "jpg,png,JPG,PNG");
 $info3 = $db->insert($loginarray, "login_credentials");
 
-
-$to = $_POST["email"];
+$to = $_POST["Email_ID"];
 $subject = "New registration as Recruiter";
 $body = $_POST["Organization_Name"] . " " . $_POST["Type_of_organization"] . " as new registration as recruiter on " . date("Y/m/d") . "<br>";
 $mbrdata = $db->select("mainbranch", "email");
@@ -24,28 +25,17 @@ while ($mone = $mbrdata->fetch_assoc()) {
     $cc .= "," . $mone["email"];
 }
 $message = $mail->sendMail($to, $subject, $body, $cc);
-//echo $message;
-header("location:../Login_User.php");
 
-//
-//if (count($info3) > 0) {
-//    $status = array();
-//    echo $info[0];
-//    $count1 = 0;
-//    $count0 = 0;
-//    if ($info[0] == 1) {
-//        $count1++;
-//        array_push($status, $count1);
-//    } else {
-//        $count0++;
-//        array_push($status, $count0);
-//    }
-//
-//
-////    array_push($status, $info);
-////    array_push($status, $info1);
-////    array_push($status, $info3);
-//    header("location:../Login_User.php?info=" . json_encode($status));
-
-
-
+if ($info3[0] == 1 && $info[0] == 1 && $info1[0] == 1) {
+    $_SERVER["HTTP_REFERER"] = "../success.html";
+    $db->sendBack($_SERVER);
+} else {
+    echo '<h3 style="color:red;">';
+    echo $info[0];
+    echo $info[1];
+    echo $info1[0];
+    echo $info1[1];
+    echo $info3[0];
+    echo $info3[1];
+    echo '</h3>';
+}

@@ -82,7 +82,7 @@
     color: #FFA425;
     font-size: 20px;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 0 0 10px;
 }
 .serviceBox .description{

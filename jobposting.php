@@ -5,7 +5,7 @@ include './LoginCheck.php';
 <html>
     <head>
         <?php
-        include '../Common/CDN.php';
+        include 'Common/CDN.php';
         include '../Config/DB.php';
         include '../Config/ConnectionObjectOriented.php';
         ?>   
@@ -74,11 +74,11 @@ include './LoginCheck.php';
                                 </div>
                                 <div class="form-group">
                                     <label for="jobpostedon">Job Posted On:</label>
-                                    <input type="date" class="form-control" id="job_posted_on" placeholder="Enter Job Posted On" name="job_posted_on">
+                                    <input type="text" class="form-control datepicker" id="job_posted_on" placeholder="Enter Job Posted On" name="job_posted_on">
                                 </div>
                                 <div class="form-group">
                                     <label for="vacancyvalidtill">Vacancy Valid Till:</label>
-                                    <input type="date" class="form-control" id="vacancy_valid_till" placeholder="Enter Job Id" name="vacancy_valid_till">
+                                    <input type="text" class="form-control datepicker" id="vacancy_valid_till" placeholder="Enter Job Id" name="vacancy_valid_till">
                                 </div>
                                 <div class="form-group">
                                     <label for="packagerangeoffered">Package Ranged Offered (Yearly basis): Example(10000 to 50000) </label>

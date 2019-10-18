@@ -1,7 +1,7 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -11,7 +11,7 @@ include './LoginCheck.php';
         ?>   
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-            <?php include './RootAdmin_page.css';?>
+<?php include './RootAdmin_page.css'; ?>
             .main-column-form {
                 padding: 20px 20px!important;
    
@@ -68,26 +68,34 @@ include './LoginCheck.php';
                 <div class="col-sm-9 maincolumn" style="margin: 0px auto;">
                     <div class="main-column-form">
                         <h2>Branch registration form</h2>
+                        <div style="font-weight: bold; color: green;">
+                            <?php
+                            if (isset($_REQUEST["info"])) {
+                                echo $_REQUEST["info"];
+                            }
+                            ?>
+                        </div>
                         <form action="../controller/BranchRegistrationController.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name">Branch name:</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email" name="name">
+                                <input type="text" class="form-control" id="email"  name="name">
                             </div>  
                             <div class="form-group">
                                 <label for="pcontact">Primary contact:</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email" name="pcontact">
+                                <input type="text" class="form-control" id="email"  name="pcontact">
                             </div>  
                             <div class="form-group">
                                 <label for="scontact">Secondary contact:</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email" name="scontact">
+                                <input type="text" class="form-control" id="email" name="scontact">
                             </div>  
                             <div class="form-group">
                                 <label for="email">Username:</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email" name="user_name">
+                                <input type="hidden" name="mainbranch_id" value="<?php echo $_SESSION["loggedinid"]; ?>">
+                                <input type="text" class="form-control" id="email"  name="user_name">
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                                <input type="password" class="form-control" id="pwd" name="password">
                             </div>
                             <button type="submit" class="btn btn-default">Submit</button>
                         </form>

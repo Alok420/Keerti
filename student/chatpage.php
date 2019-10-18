@@ -1,7 +1,9 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
 <html>
     <?php
-    include './LoginCheck.php';
+
     include '../Common/CDN.php';
     include '../Config/ConnectionObjectOriented.php';
     include '../Config/DB.php';
@@ -82,10 +84,10 @@
 
 
                             } else if (tbname == "employers") {
-                                $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/CompanyProfile/" + obj[key]["company_logo"] + "' height='30' width='30'> " + obj[key]["Organization_Name"] + " (<small id='rtype'>employer</small>)</li>");
+                                $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/CompanyProfile/" + obj[key]["company_logo"] + "' height='30' width='30'> " + obj[key]["Organization_Name"] + " (<small id='rtype'>Recruiter</small>)</li>");
 
                             } else if (tbname == "candidates") {
-                                $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/profile/" + obj[key]["dp"] + "' height='30' width='30'>" + obj[key]["fname"] + " " + obj[key]["lname"] + " (<small id='rtype'>candidate</small>)</li>");
+                                $('.list ul').append("<li onclick='clickme(this)' class='nameid'><small id='rid'>" + obj[key]["id"] + "</small><img src='../images/profile/" + obj[key]["dp"] + "' height='30' width='30'>" + obj[key]["fname"] + " " + obj[key]["lname"] + " (<small id='rtype'>Candidate</small>)</li>");
 
 
                             }
@@ -126,7 +128,7 @@
                 <select class="select">
                     <option value="mainbranch">Root</option>
                     <option value="branches">Branch</option>
-                    <!--<option value="employers">Employer</option>-->
+                    <!--<option value="employers">Recruiter</option>-->
                     <!--<option value="candidates">Employee</option>-->
                 </select>
                 <div class="list">

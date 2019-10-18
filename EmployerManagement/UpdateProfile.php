@@ -1,3 +1,5 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -7,7 +9,7 @@ and open the template in the editor.
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+    
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -108,8 +110,9 @@ and open the template in the editor.
                     <?php include './recruiter_sidebar.php'; ?>
                 </div>
                 <div class="col-sm-9 maincolumn">
-                    <div class="row">
-                                    <h1>Update profile page</h1>
+                        <h1>Update profile page</h1>
+                        <div style="overflow-x: scroll;">
+                                
 
                         <?php
                         $id=$_SESSION["loggedinid"];

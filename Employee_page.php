@@ -1,8 +1,9 @@
+<?php session_start(); ?>	
 <!DOCTYPE html>
 <html>
     <head>
         <?php
-        $loggedintype = "candidate";
+        $loggedintype = array("branch", "employer");
         include './UserLoginCheck.php';
         include './Common/CDN.php';
         include './Common/colors.php';
@@ -85,9 +86,9 @@
                         }
                         if (!empty($skill)) {
                             if ($i == 1) {
-                                $sql .= " and id in(select id from skill_set where skill like '%$skill%')";
+                                $sql .= " and id in(select candidates_id from skill_set where skill like '%$skill%')";
                             } else {
-                                $sql .= " id in(select id from skill_set where skill like '%$skill%')";
+                                $sql .= " id in(select candidates_id from skill_set where skill like '%$skill%')";
                             }
                             $i = 1;
                         }

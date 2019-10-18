@@ -1,7 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 	
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -91,66 +91,58 @@ include './LoginCheck.php';
                 <div class="col-sm-9 maincolumn">
                     <h1 style="text-align: center; margin: 15px; text-shadow: 2px 2px lightgray; padding:10px;">Dashboard</h1> 
 
-                    <form class="form-inline" action="/action_page.php">
-                        <label>Start date</label>
-                        <input type="date" class="form-control form-inline" name="date">
-                        <label>End date</label>
-                        <input type="date" class="form-control form-inline" name="date">
-                        <button class="btn btn-default" type="submit" style="background-color: #002433; font-size: 18px; color: white;">Generate report</button>
-                    </form>
 
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="card branchcard">
-                                <a href="../Employee_page.php"><div class="rootdashboard">
-                                    <h3><?php
-                                        $data = $db->select("employers", "count(id) as allnum");
-                                        $one = $data->fetch_assoc();
-                                        $num = $one["allnum"];
-                                        echo $num;
-                                        ?></h3>
-                                    <div class="totalbranch">Total Companies</div>
-                                    <div class="rooticon"><i class="fa fa-building-o"></i></span></div>
-<!--                                    <div class="btn-card-root">
-                                        <div class="btn btn-default card-btn-root"><a href="../Employee_page.php">Read More</a></div>
-                                    </div>-->
+                                <a href="../Employer_page.php"><div class="rootdashboard">
+                                        <h3><?php
+                                            $data = $db->select("employers", "count(id) as allnum");
+                                            $one = $data->fetch_assoc();
+                                            $num = $one["allnum"];
+                                            echo $num;
+                                            ?></h3>
+                                        <div class="totalbranch">Total Companies</div>
+                                        <div class="rooticon"><i class="fa fa-building-o"></i></span></div>
+                                        <!--                                    <div class="btn-card-root">
+                                                                                <div class="btn btn-default card-btn-root"><a href="../Employee_page.php">Read More</a></div>
+                                                                            </div>-->
                                     </div></a>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="card branchcard">
-                                <a href="../Appointments.php"><div class="rootdashboard">
-                                    <h3><?php
-                                        $query = "select count(id) as allnum from appointment where hiring_id in (select id from hiring where candidates_id=" . $_SESSION['loggedinid'] . ")";
-                                        $data = $conn->query($query);
-                                        $one = $data->fetch_assoc();
-                                        $num = $one["allnum"];
-                                        echo $num;
-                                        ?></h3>
-                                    <div class="totalbranch">Total Appointments</div>
-                                    <div class="rooticon"><span class="glyphicon glyphicon-home"></span></div>
-<!--                                    <div class="btn-card-root">
-                                        <div class="btn btn-default card-btn-root"><a href="Appointments.php">Read More</a></div>
-                                    </div>-->
+                                <a href="Appointments.php"><div class="rootdashboard">
+                                        <h3><?php
+                                            $query = "select count(id) as allnum from appointment where hiring_id in (select id from hiring where candidates_id=" . $_SESSION['loggedinid'] . ")";
+                                            $data = $conn->query($query);
+                                            $one = $data->fetch_assoc();
+                                            $num = $one["allnum"];
+                                            echo $num;
+                                            ?></h3>
+                                        <div class="totalbranch">Total Appointments</div>
+                                        <div class="rooticon"><span class="glyphicon glyphicon-home"></span></div>
+                                        <!--                                    <div class="btn-card-root">                                                                                <div class="btn btn-default card-btn-root"><a href="Appointments.php">Read More</a></div>
+     </div>-->
                                     </div></a>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="card branchcard" >
-                                <a href="../AllJobRequest.php"><div class="rootdashboard">
-                                    <h3><?php
-                                        $query = "select count(id) as allnum from hiring where candidates_id=" . $_SESSION['loggedinid'];
+                                <a href="AllJobRequest.php"><div class="rootdashboard">
+                                        <h3><?php
+                                            $query = "select count(id) as allnum from hiring where candidates_id=" . $_SESSION['loggedinid'];
 
-                                        $data = $conn->query($query);
-                                        $one = $data->fetch_assoc();
-                                        $num = $one["allnum"];
-                                        echo $num;
-                                        ?></h3>
-                                    <div class="totalbranch">Total JOB request</div>
-                                    <div class="rooticon"><span class="glyphicon glyphicon-home"></span></div>
-<!--                                    <div class="btn-card-root">
-                                        <div class="btn btn-default card-btn-root"><a href="AllJobRequest.php">Job request</a></div>
-                                    </div>-->
+                                            $data = $conn->query($query);
+                                            $one = $data->fetch_assoc();
+                                            $num = $one["allnum"];
+                                            echo $num;
+                                            ?></h3>
+                                        <div class="totalbranch">Total JOB request</div>
+                                        <div class="rooticon"><span class="glyphicon glyphicon-home"></span></div>
+                                        <!--                                    <div class="btn-card-root">
+                                                                                <div class="btn btn-default card-btn-root"><a href="AllJobRequest.php">Job request</a></div>
+                                                                            </div>-->
                                     </div></a>
                             </div>
                         </div>

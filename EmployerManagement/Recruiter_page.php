@@ -1,8 +1,10 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
 <html>
     <head>
         <?php
-        include './LoginCheck.php';
+      
         include '../Common/CDN.php';
         include '../Config/ConnectionObjectOriented.php';
         include '../Config/DB.php';
@@ -22,15 +24,6 @@
 
                 <div class="col-sm-9 maincolumn">
                     <h1 style="text-align: center; margin: 10px; font-size: 35px; font-weight: bold; padding: 15px; text-shadow: 2px 2px lightgray; text-transform: capitalize; letter-spacing: 2px;">Dashboard</h1> 
-
-                    <form class="form-inline" action="/action_page.php">
-                        <label>Start date</label>
-                        <input type="date" class="form-control form-inline" name="date">
-                        <label>End date</label>
-                        <input type="date" class="form-control form-inline" name="date">
-                        <button class="btn btn-default" type="submit" style="background-color: #002433; padding: 8px; text-transform: capitalize; font-size: 18px; color: white;">Generate report</button>
-                    </form>
-
                     <div class="row">
 
                         <div class="col-sm-3">

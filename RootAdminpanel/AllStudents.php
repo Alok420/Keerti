@@ -1,7 +1,7 @@
+<?php session_start(); ?>
+<?php include './LoginCheck.php'; ?> 
 <!DOCTYPE html>
-<?php
- include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -62,10 +62,12 @@
                 </div>
                 <div class="col-sm-9 maincolumn">
                     <h1>All Students</h1>
-                    <div class="row">
-                        <?php
-                        $db->showInTable("candidates");
-                        ?>
+                    <div>
+                        <div style="overflow-x: scroll;">
+                            <?php
+                            $db->showInTable("candidates","*",array(),"all", $externallinks = "", array(), $sort);
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,6 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 	
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
 <html>
     <head>
         <?php
@@ -97,7 +96,7 @@ include './LoginCheck.php';
                 font-weight: bold; 
                 font-size: 15px!important; 
                 letter-spacing: 1px; 
-                text-transform: uppercase;
+                text-transform: capitalize;
             }
             .btn{
                 width:100%;

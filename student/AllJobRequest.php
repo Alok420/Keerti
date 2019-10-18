@@ -1,7 +1,6 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
 <html>
     <head>
         <?php
@@ -62,7 +61,7 @@ include './LoginCheck.php';
                 font-weight: bold; 
                 font-size: 20px; 
                 letter-spacing: 1px; 
-                text-transform: uppercase;
+                text-transform: capitalize;
             }
             .col-sm-3{
                 /*border-right: thin solid red;*/
@@ -147,7 +146,7 @@ include './LoginCheck.php';
                                 ?>
                                 <br><br>
                                 <?php
-                                echo $hiring["employerapproval"] == 0 ? "<button disabled id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $hiring['id'] . "\",\"hiring\")'>Employer Approvel pending </button disabled>" : "<button disabled id='approved' class='btn btn-default' onclick='approval(\"0\",\"" . $hiring['id'] . "\",\"hiring\")'>Employer Approved</button disabled>";
+                                echo $hiring["employerapproval"] == 0 ? "<button disabled id='approve' class='btn btn-success' onclick='approval(\"1\",\"" . $hiring['id'] . "\",\"hiring\")'>Recruiter Approvel pending </button disabled>" : "<button disabled id='approved' class='btn btn-default' onclick='approval(\"0\",\"" . $hiring['id'] . "\",\"hiring\")'>Recruiter Approved</button disabled>";
                                 ?>
                             </div>
 

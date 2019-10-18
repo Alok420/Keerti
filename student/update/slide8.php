@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <?php include '../LoginCheck.php'; ?>
 <?php include '../../Config/ConnectionObjectOriented.php'; ?>
@@ -7,7 +8,6 @@ $db = new DB($conn);
 ?>
 <html>
     <head>
-
         <?php
         include '../../Common/CDN.php';
         ?>

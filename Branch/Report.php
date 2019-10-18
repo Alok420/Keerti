@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<?php
-include './LoginCheck.php';
-?> 
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
+<!DOCTYPE html> 
 <html>
     <head>
         <?php
@@ -20,7 +19,11 @@ include './LoginCheck.php';
         <?php
         if ((isset($_GET["sdate"]) && !empty($_GET["sdate"])) && (isset($_GET["sdate"]) && !empty($_GET["sdate"]))) {
             $startdate = $_GET["sdate"];
+            $date = DateTime::createFromFormat('m/d/Y', $startdate);
+            $startdate = $date->format("Y-m-d");
             $enddate = $_GET["edate"];
+            $date = DateTime::createFromFormat('m/d/Y', $enddate);
+            $enddate = $date->format("Y-m-d");
             ?>
             <div class="container">
                 <div class="row">
@@ -29,7 +32,7 @@ include './LoginCheck.php';
                 <div class="row">
                     <table class="table table-bordered table-hover">
                         <caption style="text-align: center;"><h3>(Total <?php
-                                $query = "select count(id) as cnt from branches";
+                                $query = "select count(id) as cnt from branches where id=" . $_SESSION["loggedinid"];
                                 $data = $conn->query($query);
                                 $one = $data->fetch_assoc();
                                 echo $one["cnt"];
@@ -45,7 +48,7 @@ include './LoginCheck.php';
                             <th>Total feedbacks</th>
                         </tr>
                         <?php
-                        $query = "select * from branches";
+                        $query = "select * from branches where id=" . $_SESSION["loggedinid"];
                         $data = $conn->query($query);
                         while ($one = $data->fetch_Assoc()) {
                             ?>
@@ -197,7 +200,7 @@ include './LoginCheck.php';
                 <div class="row">
                     <table class="table table-bordered table-hover">
                         <caption style="text-align: center;"><h3>(Total <?php
-                                $query = "select count(id) as cnt from candidates";
+                                $query = "select count(id) as cnt from candidates where branches_id=" . $_SESSION["loggedinid"] . " and id in (select candidates_id from login_credentials where creation_date between '$startdate' and '$enddate')";
                                 $data = $conn->query($query);
                                 $one = $data->fetch_assoc();
                                 echo $one["cnt"];
@@ -212,7 +215,7 @@ include './LoginCheck.php';
                             <th>Total feedbacks</th>
                         </tr>
                         <?php
-                        $query = "select * from candidates";
+                        $query = "select * from candidates where branches_id=" . $_SESSION["loggedinid"] . " and id in (select candidates_id from login_credentials where creation_date between '$startdate' and '$enddate')";
                         $data = $conn->query($query);
                         while ($one = $data->fetch_Assoc()) {
                             ?>
@@ -226,8 +229,7 @@ include './LoginCheck.php';
 
                                 <td>
                                     <?php
-                                    $query = "select count(id) as cnt from hiring where date_ between '$startdate' and '$enddate' and candidates_id in (select id from candidates where branch_id=".$_SESSION['loggedinid'].") and requestedBy='candidates'";
-                                    echo $query;
+                                    $query = "select count(id) as cnt from hiring where (date_ between '$startdate' and '$enddate') and candidates_id in (select id from candidates where branches_id=" . $_SESSION['loggedinid'] . ") and requestedBy='candidates'";
                                     $hirings = $conn->query($query);
                                     $hire = $hirings->fetch_assoc();
                                     echo $hire['cnt'];

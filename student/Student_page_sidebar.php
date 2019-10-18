@@ -1,4 +1,4 @@
-<script>
+<!--<script>
     $(document).ready(function () {
         $(".remove").click(function () {
             $(".sidebar-accordion").hide();
@@ -10,10 +10,10 @@
         });
 
     });
-</script>
+</script>-->
 <div class="showbtn" ><span class="glyphicon glyphicon-tasks"></span></div>
 <div class="container sidebar-accordion sidebarcontainer">
-    <div class="remove"><span class="glyphicon glyphicon-remove"></span></div>
+    <!--<div class="remove"><span class="glyphicon glyphicon-remove"></span></div>-->
     <div class="panel-group" id="accordion">
         <div class="panel panel-default active" >
             <div class="panel-heading">

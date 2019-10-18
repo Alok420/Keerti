@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <?php include '../LoginCheck.php'; ?>
 <?php include '../../Config/ConnectionObjectOriented.php'; ?>

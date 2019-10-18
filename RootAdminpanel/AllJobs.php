@@ -1,7 +1,7 @@
+<?php session_start();?>
+<?php include './LoginCheck.php';?> 
 <!DOCTYPE html>
-<?php
- include './LoginCheck.php';
-?> 
+
 <html>
     <head>
         <?php
@@ -61,9 +61,10 @@
                     <?php include './RootAdmin_page_sidebar.php'; ?>
                 </div>
                 <div class="col-sm-9 maincolumn">
-                    <div class="row">
+                 <h1>All posted jobs</h1>
+                        <div style="overflow-x: scroll;">
                         <?php
-                        $db->showInTable("jobpost");
+                        $db->showInTable("jobpost","*",array(),"update,delete", $externallinks = "", array(), $sort);
                         ?>
                     </div>
                 </div>

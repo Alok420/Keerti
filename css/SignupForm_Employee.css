@@ -17,7 +17,7 @@
    font-family: 'Raleway', sans-serif;
    font-size: 14px;
   
-   text-transform: uppercase;
+   text-transform: capitalize;
    Letter-spacing: 0.2em;
    color: white;
 } 
@@ -34,7 +34,7 @@
    font-family: 'Raleway', sans-serif;
    font-size: 14px;
    font-weight: 500;
-   text-transform: uppercase;
+   text-transform: capitalize;
    Letter-spacing: 0.2em;
    color: white;
 }
